@@ -1,0 +1,30 @@
+.country {
+  background-color: #deeae8;
+  list-style: none;
+  padding: 12px 18px;
+  text-align: left;
+  font-size: 1.2em;
+  color: #444;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 300px;
+}
+
+.country:hover {
+  background-color: #b4cfcb;
+  color: rgb(49, 49, 49);
+  font-weight: 500;
+}
+.country:active,
+.country:focus {
+  background-color: #b4cfcb;
+  color: rgb(49, 49, 49);
+  font-weight: 500;
+}
+.flag {
+  width: 1.4rem;
+  height: 1rem;
+  margin-right: 1rem;
+}
