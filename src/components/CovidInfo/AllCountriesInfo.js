@@ -7,43 +7,31 @@ import {
   faSkull,
   faLaugh,
 } from "@fortawesome/free-solid-svg-icons";
-
-const LOADING_STATE = {
-  idle: "idle",
-  pending: "pending",
-  resolved: "resolved",
-  rejected: "rejected",
-};
+import CovidApi from "../../services/covid-api"
+import {LOADING_STATE} from "../../constants";
+import classes from './AllCountriesInfo.module.css'
 
 const AllCountriesInfo = (props) => {
-  const [data, setData] = useState();
+  // TODO: Create a custom hook
+  const [data, setData] = useState([]);
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
-  const FetchingCovidHandler = useCallback(async () => {
+
+  const fetchCovidData = useCallback(async () => {
     setLoadingStatus(LOADING_STATE.pending);
-    const response = await fetch(
-      "https://covid-19-data.p.rapidapi.com/report/totals?date=2020-07-21",
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-          "x-rapidapi-key":
-            "4ea47fdc47mshd5f1a2bb4ffc58cp1d8648jsncdd3c5e8bf93",
-        },
-      }
-    );
-    if (!response.ok) {
+    const response = await CovidApi.total()
+
+    if (!response.isOK) {
       setLoadingStatus(LOADING_STATE.rejected);
     }
 
-    const data = await response.json();
-
-    setData(data);
+    setData(response.data);
     setLoadingStatus(LOADING_STATE.resolved);
   }, []);
 
   useEffect(() => {
-    FetchingCovidHandler();
-  }, [FetchingCovidHandler]);
+    fetchCovidData();
+  }, [fetchCovidData]);
+  // TODO: end Create a custom hook
 
   if (loadingStatus === LOADING_STATE.idle || loadingStatus.pending) {
     return <div>LOADING...</div>;
@@ -53,38 +41,41 @@ const AllCountriesInfo = (props) => {
     return <div>Error</div>;
   }
 
-  if (!data || !data.length) {
+  if (!data.length) {
     return <h4>No data found</h4>;
   }
+  
+  const totalData = data[0]
+
   return (
-    <div>
-      <ul>
+    <div className={classes.main}>
+      <ul className={classes.listItem}>
         <CovidInfoListItem
           icon={faCheckCircle}
           label="Confirmed"
-          data={data[0].confirmed}
+          data={totalData.confirmed}
         />
 
         <CovidInfoListItem
           icon={faAmbulance}
           label="Critical"
-          data={data[0].critical}
+          data={totalData.critical}
         />
 
         <CovidInfoListItem
           icon={faCalendarDay}
           label="Date"
-          data={data[0].date}
+          data={totalData.date}
         />
         <CovidInfoListItem
           icon={faSkull}
           label="Deaths"
-          data={data[0].deaths}
+          data={totalData.deaths}
         />
         <CovidInfoListItem
           icon={faLaugh}
           label="Recovered"
-          data={data[0].recovered}
+          data={totalData.recovered}
         />
       </ul>
     </div>

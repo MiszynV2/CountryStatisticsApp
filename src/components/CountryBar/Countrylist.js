@@ -1,36 +1,33 @@
 import CountryItem from "./CountryItem";
 import classes from "./CountryList.module.css";
 
-const CountryList = (props) => {
-  const filterInputCountries = props.countries.filter((country) =>
-    country.name.toLowerCase().includes(props.inputValue)
-  );
+const CountryList = ({
+                         inputValue,
+                         onClick,
+                         countries,
+                         code,
+                         name
+                     }) => {
+    const filterInputCountries = countries.filter((country) => {
+        if (!inputValue) return country
 
-  console.log(filterInputCountries);
-  return (
-    <div className={classes.card} code={props.code} name={props.name}>
-      <ul className={classes.list}>
-        {!filterInputCountries || filterInputCountries === ""
-          ? props.countries.map((country) => (
-              <>
-                <CountryItem
-                  onCountryClick={props.onCountryClick}
-                  key={country.id}
-                  {...country}
-                />
-              </>
-            ))
-          : filterInputCountries.map((country) => (
-              <>
-                <CountryItem
-                  onCountryClick={props.onCountryClick}
-                  key={country.id}
-                  {...country}
-                />
-              </>
-            ))}
-      </ul>
-    </div>
-  );
+        return country.name.toLowerCase().includes(inputValue)
+    });
+
+    return (
+        <div className={classes.card} code={code} name={name}>
+            <ul className={classes.list}>
+                {filterInputCountries.map((country) => (
+                    <>
+                        <CountryItem
+                            onCountryClick={onClick}
+                            key={country.id}
+                            country={country}
+                        />
+                    </>
+                ))}
+            </ul>
+        </div>
+    );
 };
 export default CountryList;

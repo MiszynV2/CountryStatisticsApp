@@ -1,19 +1,20 @@
 import classes from "./CountryItem.module.css";
 
-const CountryItem = (props) => {
+const CountryItem = ({onCountryClick,country}) => {
+    const {flag, name, code} = country
   return (
     <li
-      code={props.code}
+      code={code}
       onClick={() => {
-        props.onCountryClick(props.code, props.name);
+        onCountryClick(country);
       }}
       className={classes.country}
       role="button"
-      title={props.name}
+      title={name}
     >
-      <img alt={props.flag} className={classes.flag} src={props.flag} />
+      <img alt={''} className={classes.flag} src={flag} />
 
-      {props.name}
+      {name}
     </li>
   );
 };

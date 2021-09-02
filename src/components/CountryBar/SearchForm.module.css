@@ -1,0 +1,23 @@
+.retro-input_form {
+    position: relative;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.retro-input {
+    width: 80%;
+    border: none;
+    margin-left: 30px;
+    border-bottom: 1px solid #999;
+    padding: 6px 30px;
+    box-sizing: border-box;
+    margin-top: 20px;
+
+}
+.label{
+    left: 0;
+    top: 50%;
+    color: #222;
+}
+
+
+

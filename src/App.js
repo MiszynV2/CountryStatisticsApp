@@ -1,58 +1,49 @@
 import "./App.css";
-import { useState, useEffect, useCallback } from "react";
-import GeneralInfo from "./components/CovidInfo/GeneralInfo";
-import Footer from "./components/Footer";
+import {useState, useEffect, useCallback} from "react";
 import NavigationBar from "./components/CountryBar/NavigationBar";
+import {Content} from "./components/Content";
+import Footer from "./components/Footer";
 
 function App() {
-  const [countries, setCountries] = useState([]);
-  const [countryInfo, setCountryInfo] = useState({ code: "", name: "" });
+    const [countries, setCountries] = useState([]);
+    const [country, setCountry] = useState(undefined);
 
-  const handleCountryCLick = (code, name) => {
-    setCountryInfo({
-      code,
-      name,
-    });
-  };
+    const fetchCountries = useCallback(async () => {
+        try {
+            const response = await fetch("https://restcountries.eu/rest/v2/all");
+            if (!response.ok) {
+                throw new Error("Something went wrong!");
+            }
 
-  const fetchCountriesHandler = useCallback(async () => {
-    try {
-      const response = await fetch("https://restcountries.eu/rest/v2/all");
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
+            const data = await response.json();
 
-      const data = await response.json();
+            const loadedCountries = data.map((country, id) => ({
+                ...country,
+                id,
+                code: country.alpha2Code,
+            }));
 
-      const loadedCountries = data.map((country, id) => ({
-        id,
-        name: country.name,
-        code: country.alpha2Code.toLowerCase(),
-        flag: country.flag,
-      }));
+            setCountries(loadedCountries);
+        } catch (error) {
+            // TODO: handle errors properly
+            console.error(error);
+        }
+    }, []);
 
-      setCountries(loadedCountries);
-    } catch (error) {}
-  }, []);
+    useEffect(() => {
+        fetchCountries();
+    }, [fetchCountries]);
 
-  useEffect(() => {
-    fetchCountriesHandler();
-  }, [fetchCountriesHandler]);
-
-  return (
-    <div className={"main"}>
-      <section className="main__countries-list">
-        <NavigationBar
-          countries={countries}
-          onCountryClick={handleCountryCLick}
-        />
-      </section>
-      <section className="main_general-info">
-        <GeneralInfo data={countryInfo} />
-      </section>
-      <Footer className={"footer"} />
-    </div>
-  );
+    return (
+        <main className={"main"}>
+            <NavigationBar
+                list={countries}
+                onClick={setCountry}
+            />
+            <Content country={country}/>
+            <Footer className={"footer"}/>
+        </main>
+    );
 }
 
 export default App;

@@ -1,22 +1,20 @@
 import { useState } from "react";
 import CountryList from "./Countrylist";
 import SearchForm from "./SearchForm";
+import classes from"./NavigationBar.module.css"
 
-const NavigationBar = (props) => {
+const NavigationBar = ({list,onClick}) => {
   const [inputInfo, setInputInfo] = useState("");
-  const ChangeInfoHandler = (input) => {
-    setInputInfo(input);
-  };
-  console.log(inputInfo);
+
   return (
-    <>
-      <SearchForm onInputChange={ChangeInfoHandler} />
+    <nav className={classes.navbar}>
+      <SearchForm onInputChange={setInputInfo} />
       <CountryList
-        onCountryClick={props.onCountryClick}
-        countries={props.countries}
-        inputValue={inputInfo.toLowerCase()}
+        onClick={onClick}
+        countries={list}
+        inputValue={inputInfo}
       />
-    </>
+    </nav>
   );
 };
 

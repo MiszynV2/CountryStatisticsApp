@@ -1,15 +1,4 @@
-.listItem {
-  background-color: #deeae8;
-  list-style: none;
-  padding: 12px 18px;
-  margin: 0;
-  text-align: left;
-  font-size: 1.2em;
-  color: #444;
-  cursor: pointer;
-  white-space: nowrap;
-  overflow: hidden;
-}
+
 
 .noData {
   background-color: #f1e2d7;

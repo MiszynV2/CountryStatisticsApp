@@ -1,0 +1,45 @@
+.countryInfo {
+    background-color: #cccccc;
+    list-style: none;
+    padding: 12px 18px;
+    text-align: left;
+    font-size: 1.2em;
+    color: #444;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.flag{
+    width:35%;
+    height: 20%;
+    min-height: 80px;
+    max-height:200px;
+    margin:70px 0 0 20px;
+}
+
+.main{
+    background-color: #cddccc;
+    display: flex;
+    width: 100%;
+}
+
+.info{
+    margin-left:20px;
+    width: 90%;
+    background-color: #DCDCD0;
+
+}
+h2,h5{
+    text-align: center;
+}
+
+.countryInfo{
+    width: 90%;
+}
+.span{
+    font-weight:500;
+}
