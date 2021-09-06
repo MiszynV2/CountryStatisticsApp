@@ -1,0 +1,5 @@
+.main{
+    background-color: var(--main-bg-color);
+    grid-area: vacination;
+    border-radius: var(--main-radius);
+}

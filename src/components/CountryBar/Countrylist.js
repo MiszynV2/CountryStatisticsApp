@@ -15,7 +15,6 @@ const CountryList = ({
     });
 
     return (
-        <div className={classes.card} code={code} name={name}>
             <ul className={classes.list}>
                 {filterInputCountries.map((country) => (
                     <>
@@ -27,7 +26,6 @@ const CountryList = ({
                     </>
                 ))}
             </ul>
-        </div>
     );
 };
 export default CountryList;

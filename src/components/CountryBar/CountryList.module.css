@@ -1,24 +1,8 @@
-button {
-  background-color: #4caf50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 0.1rem;
-}
-
-.buttons {
-  display: flex;
-  margin-left: 2.3rem;
-  margin-top: 1rem;
-}
-
 .list {
   padding: 0;
-  height: 800px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  width: 250px;
+  height: 550px;
+  overflow: hidden;
+  background-color: var(--main-bg-color);
 }
+

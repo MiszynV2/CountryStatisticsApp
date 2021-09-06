@@ -49,6 +49,8 @@ const AllCountriesInfo = (props) => {
 
   return (
     <div className={classes.main}>
+      <h1 className={classes.title}>Global Statistic</h1>
+      <h2 className={classes.subtitle }>{new Date().toLocaleString()}</h2>
       <ul className={classes.listItem}>
         <CovidInfoListItem
           icon={faCheckCircle}

@@ -3,6 +3,8 @@ import {useState, useEffect, useCallback} from "react";
 import NavigationBar from "./components/CountryBar/NavigationBar";
 import {Content} from "./components/Content";
 import Footer from "./components/Footer";
+import Icon from "./components/common/Icon";
+
 
 function App() {
     const [countries, setCountries] = useState([]);
@@ -35,7 +37,9 @@ function App() {
     }, [fetchCountries]);
 
     return (
+        <div className={'main-wrapper'}>
         <main className={"main"}>
+            <header><Icon/>COVID STATS</header>
             <NavigationBar
                 list={countries}
                 onClick={setCountry}
@@ -43,6 +47,7 @@ function App() {
             <Content country={country}/>
             <Footer className={"footer"}/>
         </main>
+        </div>
     );
 }
 

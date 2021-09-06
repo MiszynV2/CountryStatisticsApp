@@ -3,6 +3,7 @@ import CountryList from "./Countrylist";
 import SearchForm from "./SearchForm";
 import classes from"./NavigationBar.module.css"
 
+
 const NavigationBar = ({list,onClick}) => {
   const [inputInfo, setInputInfo] = useState("");
 

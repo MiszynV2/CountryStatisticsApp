@@ -2,7 +2,6 @@ import {useCallback, useState, useEffect} from "react";
 import classes from "./CountryCovidInfo.module.css";
 import ProvinceDetails from "../ProvinceDetails"
 import CovidApi from '../../services/covid-api'
-
 const LOADING_STATE = {
     idle: "idle",
     pending: "pending",
@@ -50,14 +49,16 @@ const CountryCovidInfo = (props) => {
 
     if (!data || !data.length) {
         return (
-            <div className={classes.noData}>
+            <div className={classes.main}>
                 <h4>Something went wrong! Try search again (:</h4>
             </div>
         );
     }
 
     return (
+         <div className={classes.main}>
         <ProvinceDetails country={data[0].country} provinces={data[0].provinces}/>
+         </div>
     )
 }
 

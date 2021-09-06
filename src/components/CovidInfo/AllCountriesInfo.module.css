@@ -1,7 +1,7 @@
 .listItem {
   background-color: #E6EEEF;
   list-style: none;
-  padding: 12px 18px;
+
   text-align: left;
   font-size: 1.2em;
   color: #444;
@@ -9,9 +9,10 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  width: 300px;
-  margin-left: 40px;
-  margin-top: 60px;
+  width: 910px;
+  height: 515px;
+  margin-left: 90px;
+  margin-top: 120px;
 }
 
 .icons {
@@ -19,7 +20,34 @@
 }
 
 .main{
-  background-color: #deeae8;
-  width: 90%;
-  height: 80%;
+  background-color: var(--main-bg-color);;
+  height: 839px;
+  width: 1125px;
+  border-radius: var(--main-radius);;
+}
+.title{
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  padding-top: 45px;
+  padding-left: 45px;
+  width: 150px;
+  height: 5px;
+  font-family: "Roboto Light",sans-serif;
+}
+
+.subtitle{
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  padding-top: 10px;
+  padding-left: 30px;
+  width: 150px;
+  height: 5px;
+  color:#8E8E93;
+  font-family: "Roboto Light",sans-serif;
 }

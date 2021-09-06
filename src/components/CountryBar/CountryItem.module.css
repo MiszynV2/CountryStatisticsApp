@@ -1,31 +1,42 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('https://fonts.googleapis.com/css?family=Roboto') format("woff2");
+}
+
+
 .country {
-  background-color: #deeae8;
+  background-color: var(--main-bg-color);
   list-style: none;
-  padding: 12px 18px;
+  padding: 10px 0;
   text-align: left;
-  font-size: 1.2em;
+  font-size: 1em;
   color: #444;
+  font-weight: 450;
   cursor: pointer;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  width: 300px;
+  width: 250px;
+  height: 34px;
+  font-family: "Roboto Light",sans-serif;
+
 }
 
 .country:hover {
-  background-color: #b4cfcb;
-  color: rgb(49, 49, 49);
+  background-color: #c8dafa;
+  color: darkgrey;
   font-weight: 500;
 }
 .country:active,
 .country:focus {
-  background-color: #b4cfcb;
-  color: rgb(49, 49, 49);
+  background-color: #c8dafa;
+  color: darkgrey;
   font-weight: 500;
 }
 .flag {
   width: 1.4rem;
   height: 1rem;
-  margin-right:10px;
-  padding-left: 10px;
+  padding-right:32px;
+  padding-left: 32px;
+  padding-top: 7px;
 }

@@ -8,13 +8,14 @@ const SearchForm = (props) => {
 
   return (
     <>
-      <form className={classes["retro-input_form"]}>
+      <form className={classes["input_form"]}>
+          <FontAwesomeIcon className={classes.icon} icon={faSearch}/>
         <input
           onChange={(event) => props.onInputChange(event.target.value)}
           type="text"
           ref={textInputRef}
-          className={classes["retro-input"]}
-          placeholder="Poland"
+          className={classes["input"]}
+          placeholder="Search for country"
         />
       </form>
     </>
