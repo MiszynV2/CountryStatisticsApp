@@ -1,6 +1,6 @@
 .main{
     background-color: var(--main-bg-color);
-    grid-area: totalInfo;
+    grid-area: continent;
     border-radius: var(--main-radius);
     padding: 30px;
 }
@@ -19,5 +19,7 @@
 }
 
 .chart{
-    margin-top: -15px;
+    margin-top: 80px;
+    width: 506px;
+    height: 256px;
 }

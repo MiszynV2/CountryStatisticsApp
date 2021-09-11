@@ -4,12 +4,12 @@
 
 .listItem {
   margin: 0;
-  background-color: #E6EEEF;
+  background-color: var(--covidInfoListItem-bg-color);
   list-style: none;
   padding: 12px 18px;
   text-align: left;
   font-size: 1.2em;
-  color: #444;
+  color: var(--country-text);
   cursor: pointer;
   white-space: nowrap;
   overflow: hidden;

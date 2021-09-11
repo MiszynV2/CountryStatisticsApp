@@ -15,7 +15,7 @@ li {
 main {
   max-width: 100vw;
   display: grid;
-  background-color: #F7F7F7;
+  background-color: var(--main-app-color);
 }
 
 .main-wrapper{
@@ -65,3 +65,4 @@ header{
       "footer generalInfo";
   }
 }
+

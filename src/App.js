@@ -4,44 +4,37 @@ import NavigationBar from "./components/CountryBar/NavigationBar";
 import {Content} from "./components/Content";
 import Footer from "./components/Footer";
 import Icon from "./components/common/Icon";
+import {faAmbulance , faSun} from "@fortawesome/free-solid-svg-icons";
+import classes from "./components/common/Icon.module.css";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 function App() {
-    const [countries, setCountries] = useState([]);
     const [country, setCountry] = useState(undefined);
+    const [currentTheme, setTheme] = useState('light');
 
-    const fetchCountries = useCallback(async () => {
-        try {
-            const response = await fetch("https://restcountries.eu/rest/v2/all");
-            if (!response.ok) {
-                throw new Error("Something went wrong!");
-            }
-
-            const data = await response.json();
-
-            const loadedCountries = data.map((country, id) => ({
-                ...country,
-                id,
-                code: country.alpha2Code,
-            }));
-
-            setCountries(loadedCountries);
-        } catch (error) {
-            // TODO: handle errors properly
-            console.error(error);
+    const switchTheme = () => {
+        if (currentTheme==='light') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            setTheme('dark')
         }
-    }, []);
+        else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            setTheme('light')
+        }
+    }
 
-    useEffect(() => {
-        fetchCountries();
-    }, [fetchCountries]);
+
 
     return (
         <div className={'main-wrapper'}>
         <main className={"main"}>
-            <header><Icon/>COVID STATS</header>
+            <header><FontAwesomeIcon className={classes.icon} icon={faAmbulance}/>COVID STATS
+                <button onClick={switchTheme}>
+                <FontAwesomeIcon className={classes.icon} icon={faSun}/>
+                </button>
+            </header>
             <NavigationBar
-                list={countries}
                 onClick={setCountry}
             />
             <Content country={country}/>

@@ -2,7 +2,6 @@ import classes from './CountryDetail.module.css'
 
 const CountryDetail = ({ country }) => {
     const { flag, population, capital, region, subregion, nativeName, name } = country
-    console.log(country, 'country')
     return (<div className={classes.main}>
 
             <img className={classes.flag} alt={`flag of ${name}`} src={flag}/>

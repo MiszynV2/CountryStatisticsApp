@@ -5,13 +5,13 @@
     height: 40px;
     margin-top: 20px;
     margin-left: 5px;
-    background: #d8ebff;
+    background: var(--countryinfo-bg);
     border-radius: 4px;
     display: flex;
-    color:#2F80ED;
+    color:var(--text-input-color);
 }
 input[type=text] {
-    color: #2F80ED;
+    color: var(--text-input-color);
 }
 .icon{
     width: 20px;
@@ -19,7 +19,7 @@ input[type=text] {
     margin-left: 20px;
 }
 .input {
-    background: #d8ebff;
+    background: var(--countryinfo-bg);
     width:300px;
     border: none;
     padding: 6px 30px;
@@ -27,7 +27,7 @@ input[type=text] {
 
 }
 ::placeholder{
-    color: #2F80ED;
+    color: var(--text-input-color);
 }
 .input:focus, textarea:focus, select:focus{
     outline: none;

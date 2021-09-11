@@ -1,16 +1,16 @@
-import CountryCovidInfo from "./CovidInfo/CountryCovidInfo";
+import CountryInformation from "./CovidInfo/CountryInformation";
 import CountryDetail from "./CountryInfo/CountryDetail";
 import TotalCountryStatistics from "./CovidInfo/TotalCountryStatistics";
-import VaccinationStatisticsInCountry from "./CovidInfo/VaccinationStatisticsInCountry";
-import ContinentStatistics from "./CovidInfo/ContinentStatistics";
+import TotalCountryDeaths from "./CovidInfo/TotalCountryDeaths";
+import TotalCountryRecorvered from "./CovidInfo/TotalCountryRecorvered";
 import classes from './CountryInfo.module.css'
 const CountryInfo = ({country}) => {
     return (
         <>
-            <CountryCovidInfo code={country.code} name={country.name} />
-            <ContinentStatistics/>
-            <VaccinationStatisticsInCountry/>
-            <TotalCountryStatistics/>
+            <CountryInformation slug={country.slug} name={country.country} iso={country.iso}/>
+            <TotalCountryRecorvered name={country.slug} fullname={country.country}/>
+            <TotalCountryDeaths name={country.slug } fullname={country.country}/>
+            <TotalCountryStatistics name={country.slug} fullname={country.country}/>
         </>
 
 

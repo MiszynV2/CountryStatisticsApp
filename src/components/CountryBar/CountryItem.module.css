@@ -10,7 +10,7 @@
   padding: 10px 0;
   text-align: left;
   font-size: 1em;
-  color: #444;
+  color: var(--country-text);
   font-weight: 450;
   cursor: pointer;
   white-space: nowrap;
@@ -19,17 +19,16 @@
   width: 250px;
   height: 34px;
   font-family: "Roboto Light",sans-serif;
-
 }
 
 .country:hover {
-  background-color: #c8dafa;
+  background-color: var(--country-hover);
   color: darkgrey;
   font-weight: 500;
 }
 .country:active,
 .country:focus {
-  background-color: #c8dafa;
+  background-color:var(--country-hover);
   color: darkgrey;
   font-weight: 500;
 }
@@ -38,5 +37,11 @@
   height: 1rem;
   padding-right:32px;
   padding-left: 32px;
-  padding-top: 7px;
+  padding-top: 3px;
+}
+.searchedPhrase {
+  font-weight: bold;
+}
+.searchedText{
+  margin-left: 50px;
 }

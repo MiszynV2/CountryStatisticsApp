@@ -1,8 +1,67 @@
 .list {
   padding: 0;
   width: 250px;
-  height: 550px;
-  overflow: hidden;
+  height: 450px;
+  margin: 0;
   background-color: var(--main-bg-color);
+}
+.upButton{
+  width: 200px;
+
+  text-decoration: none;
+  border: none;
+  margin-top: 10px;
+  margin-left: 25px;
+  margin-bottom: 15px;
+  background-color: var(--main-bg-color);
+  height: 40px;
+
+}
+.downButton{
+  width: 200px;
+  margin-left: 25px;
+  margin-top: -80px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  background-color: var(--main-bg-color);
+  height: 40px;
+}
+.icon{
+  margin: auto;
+}
+
+.downButton:hover {
+  background-color: var(--btn-hover);
+  color: var(--btn-text-color);
+  font-weight: 500;
+}
+
+.upButton:hover {
+  background-color:var(--btn-hover);
+  color: var(--btn-text-color);
+  font-weight: 500;
+}
+
+.downButtonDisable{
+  width: 200px;
+  margin-left: 25px;
+  margin-top: -80px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  background-color: var(--main-bg-color);
+  height: 40px;
+}
+.upButtonDisable{
+  width: 200px;
+  text-decoration: none;
+  border: none;
+  margin-top: 10px;
+  margin-left: 25px;
+  margin-bottom: 15px;
+  background-color: var(--main-bg-color);
+  height: 40px;
+
 }
 

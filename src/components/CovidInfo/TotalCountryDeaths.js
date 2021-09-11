@@ -1,27 +1,27 @@
-import classes from './TotalCountryStatistics.module.css'
-import CovidApi, {totalCasesCovidAPI,totalDeathsCovidAPI,totalRecorveredCovidAPI} from '../../services/covid-api'
+import classes from './TotalCountryDeaths.module.css'
+import CovidApi, {totalDeathsCovidAPI} from '../../services/covid-api'
 import {useCallback, useEffect, useState} from "react";
 import {LOADING_STATE} from "../../constants";
 import {Line} from "react-chartjs-2";
 
 
-const TotalCountryStatistics=(props)=>{
-    const [dataCases, setDataCases] = useState([]);
+const TotalCountryDeaths=(props)=>{
+    const [dataDeaths, setDataDeaths] = useState([]);
     const [dates,setDates] = useState()
 
     const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
 
-    const TotalCasesCovidAPI = useCallback(async () => {
+    const TotalDeathsCovidAPI = useCallback(async () => {
 
         setLoadingStatus(LOADING_STATE.pending);
 
-        const response = await CovidApi.totalCasesCovidAPI(props.name)
+        const response = await CovidApi.totalDeathsCovidAPI(props.name)
 
         if (!response.isOK) {
             setLoadingStatus(LOADING_STATE.rejected);
         }
 
-        setDataCases(response.data);
+        setDataDeaths(response.data);
         setDates(response.data?.map((date)=>{
             return new Date(date?.Date).toLocaleDateString()
         }));
@@ -29,15 +29,15 @@ const TotalCountryStatistics=(props)=>{
         setLoadingStatus(LOADING_STATE.resolved);
     }, [props.name]);
 
-    //if(dataCases===undefined)return
-    const mappedCases = (dataCases||[]).map((date)=>{
+
+    const mappedDeaths = (dataDeaths || []).map((date)=>{
         return date?.Cases
     })
 
-    useEffect(() => {
-        TotalCasesCovidAPI();
-    }, [TotalCasesCovidAPI]);
 
+    useEffect(() => {
+        TotalDeathsCovidAPI();
+    }, [TotalDeathsCovidAPI]);
 
 
     if (loadingStatus === LOADING_STATE.idle || loadingStatus.pending) {
@@ -47,7 +47,7 @@ const TotalCountryStatistics=(props)=>{
     if (loadingStatus === LOADING_STATE.rejected) {
         return <div className={classes.main}>Error</div>;
     }
-    if (!dataCases) {
+    if (!dataDeaths) {
         return (
             <div className={classes.main}>
                 <h4>Something went wrong! Try search again (:</h4>
@@ -59,34 +59,25 @@ const TotalCountryStatistics=(props)=>{
         labels: dates,
         datasets: [
             {
-                label: 'Cases',
+                label: 'Deaths',
                 fill: true,
                 lineTension: 0.5,
-                backgroundColor: 'rgba(75,192,192,1)',
-                borderColor: 'rgba(0,0,0,0.3)',
-                borderWidth: 2,
-                data: mappedCases,
-            }
-        ],
-    }
-    const options = {
-        scales: {
-            yAxes: [
-                {
-                    ticks: {
-                        beginAtZero: true,
-                    },
-                },
-            ],
-        },
-    };
+                backgroundColor: 'rgba(77, 93, 240,0.9)',
+                borderColor: 'rgba(0,0,0,0.9)',
+                borderWidth: 1,
+                data: mappedDeaths,
+                drawBorder:false,
+                drawTicks:false,
+                display:false,
 
+            }
+        ]
+    }
 
     return(<div className={classes.main}>
-            <h1 className={classes.title}>Total cases</h1>
-            <Line className={classes.chart}  data={state}
-                    options={options}/>
+            <h1 className={classes.title}>Deaths cases</h1>
+            <Line className={classes.chart} data={state}/>
         </div>
-        )
+    )
 }
-export default TotalCountryStatistics
+export default TotalCountryDeaths

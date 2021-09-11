@@ -45,8 +45,7 @@ const config = [
     }
 ]
 
-const ProvinceDetails = ({country, provinces}) => {
-    console.log('Country',country)
+const ProvinceDetails = ({ provinces}) => {
     return (
         <div className={classes.listWrapper}>
         <ul className={classes.list}>

@@ -1,5 +1,5 @@
 .main {
-  background-color: #cddfdc;
+  background-color: var(--countryItem-bg-color);
   height: 100%;
   padding: 50px 0;
   display: flex;

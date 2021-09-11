@@ -1,0 +1,109 @@
+.main{
+  background-color: var(--main-bg-color);
+  grid-area: countryCovid;
+  border-radius: var(--main-radius);
+  padding:30px;
+  text-align: left;
+}
+.list{
+padding-inline-start: 0;
+  padding-inline-end: 0;
+  margin-top: 30px;
+}
+
+
+
+.info{
+
+  height: 45px;
+  border-bottom: 1px solid var(--countryinfo-border-color);
+  display: flex;
+  justify-content: space-between;
+}
+
+.firstInfo{
+  padding-top: 10px;
+
+  text-align: left;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  color:var(--countryInformation-data-text-color)
+
+}
+.regionInfo{
+  text-align: right;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+
+  padding-top: 10px;
+
+}
+.capitalInfo{
+  text-align: right;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+
+  padding-top: 10px;
+
+
+}
+.languagesInfo{
+  text-align: right;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  padding-top: 10px;
+
+
+}.populationInfo{
+   text-align: right;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 600;
+   padding-top: 10px;
+ }
+
+.flag{
+  height:30px;
+  width: 40px;
+}
+.title{
+  text-align: left;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  padding-left: 25px;
+  height: 20px;
+  font-family: "Roboto Light",sans-serif;
+}
+.subtitle{
+  text-align: left;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--countryInformation-data-text-color);
+  line-height: 24px;
+  letter-spacing: 0.01em;
+
+
+  height: 20px;
+  font-family: "Roboto Light",sans-serif;
+}
+
+.noData {
+  background-color: var(--countryInformation-data-bg-color);
+  width: 450px;
+  height: 100px;
+  font-size: 2.2em;
+  margin:auto;
+  padding: 0;
+}
+
+.flagTitle{
+  margin-bottom:10px
+}

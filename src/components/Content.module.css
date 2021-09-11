@@ -1,10 +1,10 @@
 .main {
     grid-area: generalInfo;
     display: grid;
-    grid-template-rows:405px 405px;
-    grid-template-columns:3fr 0.5fr 2.5fr;
+    grid-template-rows: 405px 405px;
+    grid-template-columns: 20vw 15vw 15vw 20vw;
     grid-gap: 30px;
     grid-template-areas:
-    'countryCovid countryCovid continent'
-      "vacination totalInfo totalInfo"
+        'totalInfo totalInfo totalInfo countryCovid'
+        "vacination vacination continent continent";
 }
