@@ -1,10 +1,29 @@
-.main {
+
+@media (min-width: 1081px) {
+    .main {
     grid-area: generalInfo;
     display: grid;
-    grid-template-rows: 405px 405px;
-    grid-template-columns: 20vw 15vw 15vw 20vw;
-    grid-gap: 30px;
+    grid-template-rows: 394px 30px 423px;
+    grid-template-columns: 26% 24% 30px 17% 30px 27%;
     grid-template-areas:
-        'totalInfo totalInfo totalInfo countryCovid'
-        "vacination vacination continent continent";
+        'totalInfo totalInfo totalInfo totalInfo . countryCovid'
+        ' . . . . . .'
+        " vacination vacination . continent continent continent";
 }
+}
+
+@media (max-width: 1080px) {
+    .main {
+        grid-area: generalInfo;
+        display: grid;
+        grid-template-rows: 394px 30px 405px  30px 405px 30px 423px;
+        grid-template-columns:100%;
+        grid-template-areas:
+            ' countryCovid'
+            ' .'
+            ' totalInfo'
+            ' .'
+            ' vacination'
+            ' .'
+            ' continent'
+    }}

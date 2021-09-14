@@ -52,15 +52,15 @@ const AllCountriesInfo = (props) => {
       {
         label: 'Totals',
         fill: true,
+        tooltip:false,
+        borderWidth:0,
         lineTension: 0.5,
-        backgroundColor: 'rgba(77, 93, 240,0.9)',
-        borderColor: 'rgba(0,0,0,0.9)',
-        borderWidth: 1,
-        data: mappedDeaths,
         drawBorder:false,
         drawTicks:false,
         display:false,
-
+        backgroundColor: 'rgba(77, 93, 240,0.9)',
+        borderColor: 'rgba(0,0,0,0.9)',
+        data: mappedDeaths,
       }
     ]
   }
@@ -69,7 +69,7 @@ const AllCountriesInfo = (props) => {
     <div className={classes.main}>
       <h1 className={classes.title}>Global Statistic</h1>
       <h2 className={classes.subtitle }>{new Date().toLocaleString()}</h2>
-      <Line width="400" height="400" data={state}/>
+      <Line data={state}/>
     </div>
   );
 };

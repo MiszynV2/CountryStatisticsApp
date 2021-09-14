@@ -1,11 +1,9 @@
 .input_form {
     position: relative;
     overflow: hidden;
-    width: 240px;
     height: 40px;
     margin-top: 20px;
-    margin-left: 5px;
-    background: var(--countryinfo-bg);
+    background: var(--search-input-bg);
     border-radius: 4px;
     display: flex;
     color:var(--text-input-color);
@@ -19,10 +17,9 @@ input[type=text] {
     margin-left: 20px;
 }
 .input {
-    background: var(--countryinfo-bg);
-    width:300px;
+    background: var(--search-input-bg);
     border: none;
-    padding: 6px 30px;
+    padding: 6px 12px;
     box-sizing: border-box;
 
 }

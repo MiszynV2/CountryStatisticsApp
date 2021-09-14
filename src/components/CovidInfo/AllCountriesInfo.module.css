@@ -21,12 +21,18 @@
 }
 
 .main{
-  background-color: var(--main-bg-color);;
-  height: 839px;
-  width: 1125px;
+  background-color: var(--main-bg-color);
   border-radius: var(--main-radius);
+  grid-area:totalInfo/ totalInfo / continent / continent;
 }
 
+
+@media (max-width: 1080px) {
+  .main{
+    background-color: var(--main-bg-color);
+    border-radius: var(--main-radius);
+    grid-area:countryCovid / countryCovid / continent / continent;
+  }}
 canvas{
   margin-top: 50px;
 }
@@ -42,6 +48,7 @@ canvas{
   width: 150px;
   height: 5px;
   font-family: "Roboto Light",sans-serif;
+  color:var(--main-text-color);
 }
 
 .subtitle{
@@ -54,6 +61,6 @@ canvas{
   padding-left: 30px;
   width: 150px;
   height: 5px;
-  color:var(--allCountriesInfo-text-color);
+  color:var(--main-text-color);
   font-family: "Roboto Light",sans-serif;
 }

@@ -31,6 +31,7 @@ const TotalCountryDeaths=(props)=>{
 
 
     const mappedDeaths = (dataDeaths || []).map((date)=>{
+        if(date.Province!=='')return
         return date?.Cases
     })
 
@@ -47,10 +48,18 @@ const TotalCountryDeaths=(props)=>{
     if (loadingStatus === LOADING_STATE.rejected) {
         return <div className={classes.main}>Error</div>;
     }
+
     if (!dataDeaths) {
         return (
             <div className={classes.main}>
                 <h4>Something went wrong! Try search again (:</h4>
+            </div>
+        );
+    }
+    if (dataDeaths.length===0) {
+        return (
+            <div className={classes.main}>
+                <h4>No data</h4>
             </div>
         );
     }
@@ -61,10 +70,11 @@ const TotalCountryDeaths=(props)=>{
             {
                 label: 'Deaths',
                 fill: true,
+                tooltip:false,
+                borderWidth:0,
                 lineTension: 0.5,
                 backgroundColor: 'rgba(77, 93, 240,0.9)',
                 borderColor: 'rgba(0,0,0,0.9)',
-                borderWidth: 1,
                 data: mappedDeaths,
                 drawBorder:false,
                 drawTicks:false,

@@ -1,12 +1,11 @@
 .list {
-  padding: 0;
-  width: 250px;
-  height: 450px;
+  padding-inline-start: 0px;
+
   margin: 0;
   background-color: var(--main-bg-color);
 }
 .upButton{
-  width: 200px;
+  width: 80%;
 
   text-decoration: none;
   border: none;
@@ -18,9 +17,9 @@
 
 }
 .downButton{
-  width: 200px;
+  width: 80%;
   margin-left: 25px;
-  margin-top: -80px;
+  margin-top: 30px;
   text-align: center;
   text-decoration: none;
   border: none;
@@ -33,20 +32,20 @@
 
 .downButton:hover {
   background-color: var(--btn-hover);
-  color: var(--btn-text-color);
+  color: var(--main-text-color);
   font-weight: 500;
 }
 
 .upButton:hover {
   background-color:var(--btn-hover);
-  color: var(--btn-text-color);
+  color: var(--main-text-color);
   font-weight: 500;
 }
 
 .downButtonDisable{
-  width: 200px;
+  width: 80%;
   margin-left: 25px;
-  margin-top: -80px;
+  margin-top: 30px;
   text-align: center;
   text-decoration: none;
   border: none;
@@ -54,7 +53,7 @@
   height: 40px;
 }
 .upButtonDisable{
-  width: 200px;
+  width: 80%;
   text-decoration: none;
   border: none;
   margin-top: 10px;
@@ -64,4 +63,46 @@
   height: 40px;
 
 }
+@media (max-width: 1080px) {
+  .upButton{
+    width: 80%;
+    display: flex;
+    text-decoration: none;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    background-color: var(--main-bg-color);
+    height: 40px;
 
+  }
+  .downButtonDisable{
+    width: 80%;
+    display: flex;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    background-color: var(--main-bg-color);
+    height: 40px;
+  }
+  .upButtonDisable{
+    width: 80%;
+    text-decoration: none;
+    border: none;
+    display: flex;
+    margin-bottom: 15px;
+    background-color: var(--main-bg-color);
+    height: 40px;
+    margin-top: 30px;
+
+  }
+  .downButton{
+    width: 80%;
+    display: flex;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    background-color: var(--main-bg-color);
+    height: 40px;
+  }}

@@ -42,16 +42,18 @@ const NavigationBar = ({onClick}) => {
         if(!inputInfo) {
             setCountriesList(countriesListTotal);
             setSearchPhrase('');
-            return;
-        };
+            console.log(!inputInfo)
+            setTotalPages(Math.floor(countriesListTotal.length / INIT_COUNTRY_PER_PAGE) + 1)
+        }else
         setSearchPhrase(inputInfo);
         const filteredList = countriesListTotal.filter((country) => {
             const inputLength= inputInfo.length;
             setCurrentPage(1)
+
             return country.country.slice(0, inputLength).toLowerCase() === inputInfo.toLowerCase()
         })
-        setTotalPages(Math.floor(filteredList.length / INIT_COUNTRY_PER_PAGE) + 1)
 
+        setTotalPages(Math.floor(filteredList.length / INIT_COUNTRY_PER_PAGE) + 1)
         setCountriesList(filteredList)
     };
 

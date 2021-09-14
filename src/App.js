@@ -4,7 +4,7 @@ import NavigationBar from "./components/CountryBar/NavigationBar";
 import {Content} from "./components/Content";
 import Footer from "./components/Footer";
 import Icon from "./components/common/Icon";
-import {faAmbulance , faSun} from "@fortawesome/free-solid-svg-icons";
+import {faAmbulance , faSun ,faMoon} from "@fortawesome/free-solid-svg-icons";
 import classes from "./components/common/Icon.module.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
@@ -17,11 +17,12 @@ function App() {
         if (currentTheme==='light') {
             document.documentElement.setAttribute('data-theme', 'dark');
             setTheme('dark')
+            return
         }
-        else {
+
             document.documentElement.setAttribute('data-theme', 'light');
             setTheme('light')
-        }
+
     }
 
 
@@ -29,9 +30,9 @@ function App() {
     return (
         <div className={'main-wrapper'}>
         <main className={"main"}>
-            <header><FontAwesomeIcon className={classes.icon} icon={faAmbulance}/>COVID STATS
-                <button onClick={switchTheme}>
-                <FontAwesomeIcon className={classes.icon} icon={faSun}/>
+            <header><div><FontAwesomeIcon className={classes.icon} icon={faAmbulance}/>COVID STATS</div>
+                <button className="theme-change-button" onClick={switchTheme}>
+                    {currentTheme==='dark'?<FontAwesomeIcon className={classes.icon} icon={faSun}/>:<FontAwesomeIcon className={classes.icon} icon={faMoon}/>}
                 </button>
             </header>
             <NavigationBar

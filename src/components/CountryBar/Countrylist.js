@@ -2,6 +2,7 @@ import CountryItem from "./CountryItem";
 import classes from "./CountryList.module.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowUp,faArrowDown} from "@fortawesome/free-solid-svg-icons";
+import useWindowSize from "../../services/useWindowSize";
 
 const CountryList = ({
                          onClick,
@@ -12,8 +13,9 @@ const CountryList = ({
                          currentPage,
                          totalPages
                      }) => {
-
-    const pageSize = 8;
+    const size = useWindowSize()
+    const pageSize = Math.floor(size.height/121);
+    console.log('pageSize',pageSize)
     const paginatedListOfCountry = countries.slice((currentPage-1)*pageSize,currentPage*pageSize);
     return (<>
             <button onClick={onButtonUp}  className={currentPage!==1 ? classes.upButton : classes.upButtonDisable}> {currentPage!==1 ?<FontAwesomeIcon icon={faArrowUp} className={classes.icon}/>:''}</button>

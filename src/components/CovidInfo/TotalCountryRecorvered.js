@@ -30,6 +30,7 @@ const TotalCountryRecorvered=(props)=>{
 
 
     const mappedDeaths = (dataDeaths||[]).map((date)=>{
+        if(date.Province!=='')return
         return date.Cases
     })
 
@@ -53,6 +54,13 @@ const TotalCountryRecorvered=(props)=>{
             </div>
         );
     }
+    if (dataDeaths.length===0) {
+        return (
+            <div className={classes.main}>
+                <h4>No data</h4>
+            </div>
+        );
+    }
 
     const state = {
         labels: dates,
@@ -60,10 +68,14 @@ const TotalCountryRecorvered=(props)=>{
             {
                 label: 'Recovered',
                 fill: true,
+                tooltip:false,
+                borderWidth:0,
                 lineTension: 0.5,
+                drawBorder:false,
+                drawTicks:false,
+                display:false,
                 backgroundColor: 'rgb(212,160,243)',
                 borderColor: 'rgba(0,0,0,0.9)',
-                borderWidth: 1,
                 data: mappedDeaths
             }
         ]

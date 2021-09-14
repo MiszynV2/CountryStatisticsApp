@@ -6,6 +6,7 @@
 }
 
 .title{
+    color:var(--main-text-color);
     text-align: left;
     font-size: 20px;
     font-style: normal;

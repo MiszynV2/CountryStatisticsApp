@@ -3,6 +3,25 @@
   src: url('https://fonts.googleapis.com/css?family=Roboto') format("woff2");
 }
 
+@media (max-width: 1080px) {
+  .country{
+    background-color: var(--main-bg-color);
+    list-style: none;
+    padding-right: 30px;
+    font-size: 1em;
+    margin-right:25px;
+    color: var(--main-text-color);
+    font-weight: 450;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-family: "Roboto Light",sans-serif;
+    display: flex;
+  }}
+
+
+
 
 .country {
   background-color: var(--main-bg-color);
@@ -10,25 +29,24 @@
   padding: 10px 0;
   text-align: left;
   font-size: 1em;
-  color: var(--country-text);
+  color: var(--main-text-color);
   font-weight: 450;
   cursor: pointer;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  width: 250px;
-  height: 34px;
   font-family: "Roboto Light",sans-serif;
+  display: flex;
 }
 
 .country:hover {
-  background-color: var(--country-hover);
-  color: darkgrey;
+  color: var(  --text-input-color);
+  background-color: var(--main-text-hover);
   font-weight: 500;
 }
 .country:active,
 .country:focus {
-  background-color:var(--country-hover);
+  background-color: var(--main-text-hover);
   color: darkgrey;
   font-weight: 500;
 }
@@ -41,7 +59,9 @@
 }
 .searchedPhrase {
   font-weight: bold;
+  margin-top: 10px;
 }
 .searchedText{
   margin-left: 50px;
+  margin-top: 10px;
 }

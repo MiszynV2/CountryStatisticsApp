@@ -1,7 +1,5 @@
 .navbar {
   grid-area: countries;
   background-color: var(--main-bg-color);
-  height: 614px;
-  width: 250px;
   border-radius: var(--main-radius);
 }

@@ -13,41 +13,41 @@ code {
     monospace;
 }
 :root{
+  --main-text-color:#444;
   --main-bg-color: #ffffff;
   --main-radius:14px;
   --main-app-color:#F7F7F7;
-  --btn-text-color:#000000;
-  --country-hover: #c8dafa;
+  --main-text-hover: #c8dafa;
   --btn-hover:#d5b5ec;
   --text-input-color:#2F80ED;
   --country-text:#444;
-  --countryinfo-bg:#d8ebff;
+  --search-input-bg:#d8ebff;
   --countryDetail-bg-color:#cccccc;
   --covidInfoListItem-bg-color: #E6EEEF;
   --countryItem-bg-color:#cddfdc;
   --countryDetail-info-bg-color: #DCDCD0;
-  ---allCountriesInfo-text-color:#8E8E93;
   --countryInformation-data-bg-color:#f1e2d7;
   --countryinfo-border-color:#E5E5E5;
   --countryInformation-data-text-color:#8E8E93 ;
+  --total-deaths-chart-color:#4bc0c0 ;
 }
 
 [data-theme="dark"] {
+  --main-text-color:#D8B9C3;
   --main-bg-color: #4D4C7D;
   --main-radius:14px;
   --main-app-color:#363062;
-  --btn-text-color:#D8B9C3;
-  --country-hover: #c8dafa;
-  --btn-hover:#d5b5ec;
+  --country-hover: #827397;
+  --btn-hover:#6d6392;
   --text-input-color:#F7F7F7;
-  --country-text:#D8B9C3;
-  --countryinfo-bg:#FDCFF3;/*Todo search input background opacity 0.1,*/
+  --main-text-hover:#D8B9C3;
+  --search-input-bg:#6d6392;
   --countryDetail-bg-color:#4D4C7D;
   --covidInfoListItem-bg-color: #E6EEEF;
   --countryItem-bg-color:#4D4C7D;
   --countryDetail-info-bg-color: #4D4C7D;
-  ---allCountriesInfo-text-color:#D8B9C3;
   --countryInformation-data-bg-color:#f1e2d7;
   --countryinfo-border-color:#f1e2d7;
-  --countryInformation-data-text-color:#D8B9C3 ;
+  --countryInformation-data-text-color:#F7F7F7 ;
+  --total-deaths-chart-color:#C297B8;
 }

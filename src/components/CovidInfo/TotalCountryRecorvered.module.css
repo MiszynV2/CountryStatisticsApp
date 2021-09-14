@@ -16,6 +16,7 @@
     height: 5px;
     font-family: "Roboto Light",sans-serif;
     padding-top: -40px;
+    color:var(--main-text-color);
 }
 
 .chart{

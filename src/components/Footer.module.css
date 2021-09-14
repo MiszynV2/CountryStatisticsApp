@@ -6,16 +6,19 @@
     height: 190px;
     grid-area: footer;
     margin-top: 10px;
+
 }
 .title{
     font-size: 20px;
     font-weight: 750;
     padding-left: 30px;
+    color:var(--main-text-color)
 }
 .subtitle{
     font-size: 15px;
     font-weight: 500;
     padding-right: 43px;
+    color:var(--main-text-color)
 }
 .list{
     text-decoration: none;
@@ -29,4 +32,5 @@
 .link{
     padding-left: 10px;
     text-decoration: none;
+    color:var(--main-text-color);
 }
