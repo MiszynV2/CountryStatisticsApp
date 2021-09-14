@@ -2,8 +2,6 @@
     background-color: var(--main-bg-color);
     border-radius: var(--main-radius);
     text-decoration: none;
-    width: 250px;
-    height: 190px;
     grid-area: footer;
     margin-top: 10px;
 

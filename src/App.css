@@ -54,25 +54,27 @@ header{
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .main {
 
-    grid-template-rows: 30vh 70vh 10vh;
-    grid-template-columns: 2fr;
+    grid-template-rows:60px 30px 70px 30px 60px 1680px 200px;
+    grid-template-columns: 100%;
     grid-template-areas:
-      "countries"
+      'header'
+      '.'
+      'countries'
+      '.'
       "generalInfo"
+      '.'
       "footer";
   }
-  ul {
-    display: none;
-  }
+
 }
 
-@media (max-width: 1213px) {
+@media (min-width: 701px) and (max-width: 1080px) {
   .main {
-    grid-template-rows:64px 20px 610px 20px;
-    grid-template-columns:20vw 40px calc(80vw - 40px);
+    grid-template-rows:64px 20px 1010px 491px 230px;
+    grid-template-columns:24vh 40px 98vh;
     grid-template-areas:
     'header header header'
     '. . .'
@@ -80,11 +82,9 @@ header{
     '. . generalInfo'
       "footer . generalInfo";
   }
-  }
+}
 
-
-
-@media (min-width: 1081px) {
+@media (min-width: 1081px) and (max-width: 1212px) {
   .main {
     grid-template-rows:64px 20px 628px 20px;
     grid-template-columns:24vh 40px 98vh;
@@ -96,10 +96,11 @@ header{
       "footer . generalInfo";
   }
 }
-@media (max-width: 1080px) {
+
+@media (min-width: 1213px) {
   .main {
-    grid-template-rows:64px 20px 1010px 491px 20px;
-    grid-template-columns:24vh 40px 98vh;
+    grid-template-rows:64px 20px 610px 20px;
+    grid-template-columns:300px 40px 98vh;
     grid-template-areas:
     'header header header'
     '. . .'
@@ -107,4 +108,4 @@ header{
     '. . generalInfo'
       "footer . generalInfo";
   }
-  }
+}

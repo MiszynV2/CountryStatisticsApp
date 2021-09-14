@@ -7,6 +7,7 @@ import Icon from "./components/common/Icon";
 import {faAmbulance , faSun ,faMoon} from "@fortawesome/free-solid-svg-icons";
 import classes from "./components/common/Icon.module.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import SearchFormMobile from "./components/CountryBar/SearchFormMobile";
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
             <Content country={country}/>
             <Footer className={"footer"}/>
         </main>
+
         </div>
     );
 }

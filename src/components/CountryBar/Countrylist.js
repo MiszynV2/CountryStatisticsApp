@@ -17,7 +17,7 @@ const CountryList = ({
     const pageSize = Math.floor(size.height/121);
     console.log('pageSize',pageSize)
     const paginatedListOfCountry = countries.slice((currentPage-1)*pageSize,currentPage*pageSize);
-    return (<>
+    return (<div className={classes.listWrapper}>
             <button onClick={onButtonUp}  className={currentPage!==1 ? classes.upButton : classes.upButtonDisable}> {currentPage!==1 ?<FontAwesomeIcon icon={faArrowUp} className={classes.icon}/>:''}</button>
             <ul className={classes.list}>
                 {paginatedListOfCountry.map((country) => (
@@ -30,7 +30,7 @@ const CountryList = ({
                 ))}
             </ul>
             <button onClick={onButtonDown} className={currentPage!==totalPages ? classes.downButton:classes.downButtonDisable}> {currentPage!==totalPages ?<FontAwesomeIcon icon={faArrowDown} className={classes.icon}/>:''}</button>
-        </>
+        </div>
     );
 };
 export default CountryList;

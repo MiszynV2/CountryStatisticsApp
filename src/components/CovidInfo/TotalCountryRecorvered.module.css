@@ -19,6 +19,14 @@
     color:var(--main-text-color);
 }
 
+@media (min-width: 1081px) {
+    .chart{
+        height:300px;
+    }
+}
+
+
+
 .chart{
     margin-top: 80px;
     width: 506px;

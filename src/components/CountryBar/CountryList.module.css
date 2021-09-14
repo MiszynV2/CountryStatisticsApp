@@ -41,7 +41,16 @@
   color: var(--main-text-color);
   font-weight: 500;
 }
+@media (max-width: 700px) {
+  .listWrapper{
+    display:none;
+  }
 
+}
+
+.listWrapper{
+
+}
 .downButtonDisable{
   width: 80%;
   margin-left: 25px;
@@ -106,3 +115,18 @@
     background-color: var(--main-bg-color);
     height: 40px;
   }}
+
+@media (max-width: 700px) {
+  .main {
+
+    grid-template-rows:60px 30px 60px 1680px 200px;
+    grid-template-columns: 100%;
+    grid-template-areas:
+      'header'
+      '.'
+      "generalInfo"
+      '.'
+      "footer";
+  }
+
+}

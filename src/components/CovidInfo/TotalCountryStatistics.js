@@ -3,6 +3,7 @@ import CovidApi, {totalCasesCovidAPI,totalDeathsCovidAPI,totalRecorveredCovidAPI
 import {useCallback, useEffect, useState} from "react";
 import {LOADING_STATE} from "../../constants";
 import {Line} from "react-chartjs-2";
+import useWindowSize from "../../services/useWindowSize";
 
 
 const TotalCountryStatistics=(props)=>{
@@ -41,6 +42,10 @@ const TotalCountryStatistics=(props)=>{
     useEffect(() => {
         TotalCasesCovidAPI();
     }, [TotalCasesCovidAPI]);
+
+
+
+
 
 
     if (loadingStatus === LOADING_STATE.idle || loadingStatus.pending) {

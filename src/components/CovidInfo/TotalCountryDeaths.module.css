@@ -21,3 +21,9 @@
 .chart{
     margin-top: 70px;
 }
+
+@media (min-width: 1081px) {
+    .chart{
+        height:300px;
+    }
+}
