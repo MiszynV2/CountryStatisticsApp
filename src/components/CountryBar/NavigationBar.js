@@ -2,11 +2,12 @@ import {useCallback, useEffect, useState} from "react";
 import CountryList from "./Countrylist";
 import SearchForm from "./SearchForm";
 import classes from"./NavigationBar.module.css"
+import useWindowSize from "../../services/useWindowSize";
+import SearchFormMobile from "./SearchFormMobile";
 
 const INIT_COUNTRY_PER_PAGE = 8
 
 const NavigationBar = ({onClick}) => {
-
     const [currentPage,setCurrentPage] = useState(1)
     const [searchPhrase,setSearchPhrase] = useState('')
     const [countriesList,setCountriesList] = useState([])
@@ -39,6 +40,7 @@ const NavigationBar = ({onClick}) => {
     }, []);
 
     const getFilteredInputCountries = (inputInfo) => {
+
         if(!inputInfo) {
             setCountriesList(countriesListTotal);
             setSearchPhrase('');
@@ -78,16 +80,16 @@ const NavigationBar = ({onClick}) => {
 
   return (
     <nav className={classes.navbar}>
-      <SearchForm onInputChange={getFilteredInputCountries} />
-      <CountryList
-        onClick={onClick}
-        searchPhrase={searchPhrase}
-        countries={countriesList}
-        onButtonUp={ButtonUpHandler}
-        onButtonDown={ButtonDownHandler}
-        currentPage={currentPage}
-        totalPages={totalPages}
-      />
+        <SearchForm onInputChange={getFilteredInputCountries}/>
+        <CountryList
+            onClick={onClick}
+            searchPhrase={searchPhrase}
+            countries={countriesList}
+            onButtonUp={ButtonUpHandler}
+            onButtonDown={ButtonDownHandler}
+            currentPage={currentPage}
+            totalPages={totalPages}
+        />
     </nav>
   );
 };

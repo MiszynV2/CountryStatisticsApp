@@ -1,5 +1,5 @@
 import "./App.css";
-import {useState, useEffect, useCallback} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import NavigationBar from "./components/CountryBar/NavigationBar";
 import {Content} from "./components/Content";
 import Footer from "./components/Footer";
@@ -8,9 +8,11 @@ import {faAmbulance , faSun ,faMoon} from "@fortawesome/free-solid-svg-icons";
 import classes from "./components/common/Icon.module.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import SearchFormMobile from "./components/CountryBar/SearchFormMobile";
+import useWindowSize from "./services/useWindowSize";
 
 
 function App() {
+    const size = useWindowSize()
     const [country, setCountry] = useState(undefined);
     const [currentTheme, setTheme] = useState('light');
 
@@ -36,13 +38,12 @@ function App() {
                     {currentTheme==='dark'?<FontAwesomeIcon className={classes.icon} icon={faSun}/>:<FontAwesomeIcon className={classes.icon} icon={faMoon}/>}
                 </button>
             </header>
-            <NavigationBar
+            {size.width>700?<NavigationBar
                 onClick={setCountry}
-            />
+            />:<SearchFormMobile onClick={setCountry}/>}
             <Content country={country}/>
             <Footer className={"footer"}/>
         </main>
-
         </div>
     );
 }

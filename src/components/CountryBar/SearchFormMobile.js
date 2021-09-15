@@ -1,24 +1,96 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import React, { useRef } from "react";
-import classes from "./SearchForm.module.css";
+import AutoSuggest from "react-autosuggest";
+import React, {useCallback, useEffect, useRef} from "react";
+import {useState } from "react";
+import classes from "./SearchFormMobile.module.css";
 
-const SearchForm = (props) => {
-    const textInputRef = useRef();
+
+const SearchFormMobile = (props) => {
+    const [value, setValue] = useState("");
+    const [suggestions, setSuggestions] = useState([]);
+    const [countriesList,setCountriesList] = useState([])
+    const [inputCountry,SetInputCountry] = useState([])
+
+
+    const fetchCountries = useCallback(async () => {
+        try {
+            const response = await fetch("https://api.covid19api.com/countries");
+            if (!response.ok) {
+                throw new Error("Something went wrong!");
+            }
+
+            const data = await response.json();
+
+            const loadedCountries = data.map((country) => ({
+                name:country.Country.toLowerCase(),
+                slug:country.Slug,
+                iso:country.ISO2
+            }));
+            setCountriesList(loadedCountries);
+            setSuggestions(loadedCountries);
+        } catch (error) {
+            // TODO: handle errors properly
+            console.error(error);
+        }
+    }, []);
+
+    useEffect(()=> {
+            fetchCountries();
+        }
+        ,[fetchCountries])
+
+    console.log(countriesList)
+
+    function getSuggestions(value) {
+        console.log('VALUE', countriesList[0].slug.slice(0,value.length).includes(value.trim().toLowerCase()))
+
+        return countriesList.filter(country =>
+            country.slug.slice(0,value.length).includes(value.trim().toLowerCase())
+
+        );
+    }
+    console.log('suggestions',suggestions)
 
     return (
         <>
             <form className={classes["input_form"]}>
-                <FontAwesomeIcon className={classes.icon} icon={faSearch}/>
-                <input
-                    onChange={(event) => props.onInputChange(event.target.value)}
-                    type="text"
-                    ref={textInputRef}
-                    className={classes["input"]}
-                    placeholder="Search for country"
-                />
-            </form>
+            <AutoSuggest
+                suggestions={suggestions || countriesList}
+                onSuggestionsClearRequested={() => setSuggestions([])}
+                onSuggestionsFetchRequested={({ value }) => {
+                    console.log(value);
+                    setValue(value);
+                    setSuggestions(getSuggestions(value));
+                }}
+                onSuggestionSelected={(_, { suggestionValue,suggestionIndex}) => {
+                    console.log("Selected: " + suggestionValue)
+                }
+                    //props.onInputChange()
+                }
+                getSuggestionValue={suggestion => suggestion.name}
+                renderSuggestion={suggestion => <<span className={classes.country}>{suggestion.name}</span>>}
+                inputProps={{
+                    placeholder: "Select country",
+                    value: value,
+                    onChange: (_, { newValue, method }) => {
+                        setValue(newValue);
+                    }
+                }}
+                theme={{
+                    container: classes.react_autosuggest__container,
+                    input: classes.react_autosuggest__input,
+                    inputOpen: classes.react_autosuggest__input__open,
+                    inputFocused: classes.react_autosuggest__input__focused,
+                    suggestionsContainer: classes.react_autosuggest__suggestions_container,
+                    suggestionsContainerOpen: classes.react_autosuggest__suggestions_container__open,
+                    suggestionsList: classes.react_autosuggest__suggestions_list,
+                    suggestion: classes.react_autosuggest__suggestion,
+                    suggestionHighlighted: classes.react_autosuggest__suggestion__highlighted,
+                }
+                }
+                highlightFirstSuggestion={true}
+            />
+        </form>
         </>
     );
 };
-export default SearchForm;
+export default SearchFormMobile;

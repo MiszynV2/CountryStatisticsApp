@@ -13,8 +13,8 @@ const CountryList = ({
                          currentPage,
                          totalPages
                      }) => {
-    const size = useWindowSize()
-    const pageSize = Math.floor(size.height/121);
+
+    const pageSize = 8
     console.log('pageSize',pageSize)
     const paginatedListOfCountry = countries.slice((currentPage-1)*pageSize,currentPage*pageSize);
     return (<div className={classes.listWrapper}>

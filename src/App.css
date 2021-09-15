@@ -2,7 +2,7 @@
 
 section {
   text-align: center;
-
+  z-index: 0;
   border-radius: 12px;
 }
 
@@ -58,7 +58,7 @@ header{
   .main {
 
     grid-template-rows:60px 30px 70px 30px 60px 1680px 200px;
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
     grid-template-areas:
       'header'
       '.'
@@ -68,39 +68,38 @@ header{
       '.'
       "footer";
   }
-
-}
-
-@media (min-width: 701px) and (max-width: 1080px) {
-  .main {
-    grid-template-rows:64px 20px 1010px 491px 230px;
-    grid-template-columns:24vh 40px 98vh;
-    grid-template-areas:
-    'header header header'
-    '. . .'
-      "countries . generalInfo"
-    '. . generalInfo'
-      "footer . generalInfo";
+  header{
+    border-radius: var(--main-radius);
+    background-color: var(--main-bg-color);
+    grid-area: header;
+    font-weight: 600;
+    font-size: 25px;
+    padding-left: 50px;
+    padding-top: 10px;
+    color:var(--main-text-color);
+    display: flex;
+    justify-content: space-between;
   }
+
 }
 
-@media (min-width: 1081px) and (max-width: 1212px) {
+@media (min-width: 721px) and (max-width: 1212px) {
   .main {
-    grid-template-rows:64px 20px 628px 20px;
-    grid-template-columns:24vh 40px 98vh;
+    grid-template-rows:62px 20px 60% 22px 230px;
+    grid-template-columns: 54fr 30px 208fr;
     grid-template-areas:
     'header header header'
     '. . .'
       "countries . generalInfo"
-    '. . generalInfo'
+    'countries . generalInfo'
       "footer . generalInfo";
   }
 }
 
 @media (min-width: 1213px) {
   .main {
-    grid-template-rows:64px 20px 610px 20px;
-    grid-template-columns:300px 40px 98vh;
+    grid-template-rows:64px 30px 569px 37px;
+    grid-template-columns:300px 40px 50vw;
     grid-template-areas:
     'header header header'
     '. . .'

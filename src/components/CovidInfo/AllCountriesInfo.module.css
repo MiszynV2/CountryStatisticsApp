@@ -33,9 +33,6 @@
     border-radius: var(--main-radius);
     grid-area:countryCovid / countryCovid / continent / continent;
   }}
-canvas{
-  margin-top: 50px;
-}
 
 .title{
   font-size: 20px;
