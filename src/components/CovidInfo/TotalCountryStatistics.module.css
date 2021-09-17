@@ -20,11 +20,8 @@
 }
 
 
-@media (max-width: 1081px) {
-    .chart{
-        height:300px;
-        aspect-ratio: auto 1003 / 700;
-    }
+@media (min-width: 1081px) {
+
     .main{
         background-color: var(--main-bg-color);
         grid-area: totalInfo;

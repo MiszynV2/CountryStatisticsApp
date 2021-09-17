@@ -8,9 +8,7 @@
     display: flex;
     color:var(--text-input-color);
 }
-input[type=text] {
-    color: var(--text-input-color);
-}
+
 .icon{
     width: 20px;
     padding-top: 11px;
@@ -21,6 +19,7 @@ input[type=text] {
     border: none;
     padding: 6px 12px;
     box-sizing: border-box;
+    color: var(--text-input-color);
 
 }
 ::placeholder{

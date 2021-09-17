@@ -14,6 +14,7 @@ const LOADING_STATE = {
 const CountryInformation = (props) => {
     const [data, setData] = useState();
     const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
+
     const FetchingCovidHandler = useCallback(async () => {
         setLoadingStatus(LOADING_STATE.pending);
         try {
@@ -31,7 +32,7 @@ const CountryInformation = (props) => {
 
 
         }
-    }, [props.name]);
+    }, [props.name,props.iso]);
 
     useEffect(() => {
         FetchingCovidHandler();

@@ -3,6 +3,7 @@
     grid-area: continent;
     border-radius: var(--main-radius);
     padding: 30px;
+
 }
 
 .title{
@@ -19,8 +20,13 @@
 }
 
 @media (min-width: 1081px) {
-    .chart{
-        height:300px;
+
+    .main{
+        background-color: var(--main-bg-color);
+        grid-area: continent;
+        border-radius: var(--main-radius);
+        padding: 30px 30px 100px 30px;
+
     }
 }
 

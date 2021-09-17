@@ -4,6 +4,7 @@ import {useCallback, useEffect, useState} from "react";
 import {LOADING_STATE} from "../../constants";
 import {Line} from "react-chartjs-2";
 import useWindowSize from "../../services/useWindowSize";
+import {Bar} from "react-chartjs-2";
 
 
 const TotalCountryStatistics=(props)=>{
@@ -106,7 +107,7 @@ const TotalCountryStatistics=(props)=>{
 
         return(<div className={classes.main}>
             <h1 className={classes.title}>Total cases</h1>
-            <Line data={state} options={options} className={classes.chart}  />
+            <Bar data={state} options={options} className={classes.chart}  />
         </div>
         )
 }

@@ -29,7 +29,6 @@ function App() {
     }
 
 
-
     return (
         <div className={'main-wrapper'}>
         <main className={"main"}>
@@ -40,7 +39,7 @@ function App() {
             </header>
             {size.width>700?<NavigationBar
                 onClick={setCountry}
-            />:<SearchFormMobile onClick={setCountry}/>}
+            />:<SearchFormMobile onInputSelected={setCountry}/>}
             <Content country={country}/>
             <Footer className={"footer"}/>
         </main>

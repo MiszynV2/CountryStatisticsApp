@@ -5,6 +5,7 @@ import TotalCountryDeaths from "./CovidInfo/TotalCountryDeaths";
 import TotalCountryRecorvered from "./CovidInfo/TotalCountryRecorvered";
 import classes from './CountryInfo.module.css'
 const CountryInfo = ({country}) => {
+    console.log(country)
     return (
         <>
             <CountryInformation slug={country.slug} name={country.country} iso={country.iso}/>

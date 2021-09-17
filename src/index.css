@@ -30,6 +30,8 @@ code {
   --countryinfo-border-color:#E5E5E5;
   --countryInformation-data-text-color:#8E8E93 ;
   --total-deaths-chart-color:#4bc0c0 ;
+  --autosuggest-text-color: #656565;
+  --autosuggest-bg-color: #d9d9d9;
 }
 
 [data-theme="dark"] {
@@ -50,4 +52,6 @@ code {
   --countryinfo-border-color:#f1e2d7;
   --countryInformation-data-text-color:#F7F7F7 ;
   --total-deaths-chart-color:#C297B8;
+  --autosuggest-text-color: #8f7f8c;
+  --autosuggest-bg-color:#4a4070;
 }

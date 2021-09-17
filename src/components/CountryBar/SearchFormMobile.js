@@ -1,5 +1,5 @@
 import AutoSuggest from "react-autosuggest";
-import React, {useCallback, useEffect, useRef} from "react";
+import React, {useCallback, useEffect} from "react";
 import {useState } from "react";
 import classes from "./SearchFormMobile.module.css";
 
@@ -8,7 +8,7 @@ const SearchFormMobile = (props) => {
     const [value, setValue] = useState("");
     const [suggestions, setSuggestions] = useState([]);
     const [countriesList,setCountriesList] = useState([])
-    const [inputCountry,SetInputCountry] = useState([])
+
 
 
     const fetchCountries = useCallback(async () => {
@@ -38,17 +38,14 @@ const SearchFormMobile = (props) => {
         }
         ,[fetchCountries])
 
-    console.log(countriesList)
 
     function getSuggestions(value) {
-        console.log('VALUE', countriesList[0].slug.slice(0,value.length).includes(value.trim().toLowerCase()))
 
         return countriesList.filter(country =>
             country.slug.slice(0,value.length).includes(value.trim().toLowerCase())
 
         );
     }
-    console.log('suggestions',suggestions)
 
     return (
         <>
@@ -57,24 +54,23 @@ const SearchFormMobile = (props) => {
                 suggestions={suggestions || countriesList}
                 onSuggestionsClearRequested={() => setSuggestions([])}
                 onSuggestionsFetchRequested={({ value }) => {
-                    console.log(value);
                     setValue(value);
                     setSuggestions(getSuggestions(value));
                 }}
                 onSuggestionSelected={(_, { suggestionValue,suggestionIndex}) => {
-
-                    console.log("Selected: " + suggestionValue)
+                    props.onInputSelected({slug:suggestionValue,iso:suggestions[suggestionIndex].iso})
                 }
                     //props.onInputChange()
                 }
                 getSuggestionValue={suggestion => suggestion.slug}
-                renderSuggestion={suggestion => <span className={classes.country}>{suggestion.name}</span>}
+                renderSuggestion={suggestion => <span>{suggestion.name}</span>}
                 inputProps={{
                     placeholder: "Select country",
                     value: value,
                     onChange: (_, { newValue, method }) => {
                         setValue(newValue)
                     }
+
                 }}
                 theme={{
                     container: classes.react_autosuggest__container,

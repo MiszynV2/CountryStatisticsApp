@@ -2,6 +2,7 @@ import classes from './TotalCountryRecorvered.module.css'
 import {LOADING_STATE} from "../../constants";
 import CovidApi from '../../services/covid-api'
 import {Line} from "react-chartjs-2";
+import {Bar} from "react-chartjs-2";
 import {useCallback, useEffect, useState} from "react";
 
 const TotalCountryRecorvered=(props)=>{
@@ -83,7 +84,7 @@ const TotalCountryRecorvered=(props)=>{
 
     return(<div className={classes.main}>
             <h1 className={classes.title}>Recovered cases</h1>
-            <Line className={classes.chart}  data={state}
+            <Bar  className={classes.chart}  data={state}
                         />
         </div>
     )

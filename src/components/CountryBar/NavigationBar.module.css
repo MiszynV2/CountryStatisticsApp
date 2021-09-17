@@ -1,5 +1,4 @@
 .navbar {
-  z-index:1;
   grid-area: countries;
   background-color: var(--main-bg-color);
   border-radius: var(--main-radius);

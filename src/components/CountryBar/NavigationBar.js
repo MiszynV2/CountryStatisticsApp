@@ -44,7 +44,6 @@ const NavigationBar = ({onClick}) => {
         if(!inputInfo) {
             setCountriesList(countriesListTotal);
             setSearchPhrase('');
-            console.log(!inputInfo)
             setTotalPages(Math.floor(countriesListTotal.length / INIT_COUNTRY_PER_PAGE) + 1)
         }else
         setSearchPhrase(inputInfo);
