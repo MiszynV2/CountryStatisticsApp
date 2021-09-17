@@ -62,17 +62,18 @@ const SearchFormMobile = (props) => {
                     setSuggestions(getSuggestions(value));
                 }}
                 onSuggestionSelected={(_, { suggestionValue,suggestionIndex}) => {
+
                     console.log("Selected: " + suggestionValue)
                 }
                     //props.onInputChange()
                 }
-                getSuggestionValue={suggestion => suggestion.name}
-                renderSuggestion={suggestion => <<span className={classes.country}>{suggestion.name}</span>>}
+                getSuggestionValue={suggestion => suggestion.slug}
+                renderSuggestion={suggestion => <span className={classes.country}>{suggestion.name}</span>}
                 inputProps={{
                     placeholder: "Select country",
                     value: value,
                     onChange: (_, { newValue, method }) => {
-                        setValue(newValue);
+                        setValue(newValue)
                     }
                 }}
                 theme={{
