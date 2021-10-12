@@ -5,6 +5,7 @@
 
 @media (max-width: 1080px) {
   .country{
+    margin: 0;
     background-color: var(--main-bg-color);
     list-style: none;
     font-size: 1em;
@@ -16,7 +17,6 @@
     overflow: hidden;
     font-family: "Roboto Light",sans-serif;
     display: flex;
-    justify-content: initial;
   }}
 
 
@@ -32,7 +32,6 @@
   font-weight: 450;
   cursor: pointer;
   white-space: nowrap;
-  text-overflow: ellipsis;
   overflow: hidden;
   font-family: "Roboto Light",sans-serif;
   display: flex;
@@ -63,4 +62,5 @@
 .searchedText{
   margin-left: 50px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }

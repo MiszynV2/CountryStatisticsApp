@@ -4,10 +4,14 @@ import CovidApi from '../../services/covid-api'
 import {Line} from "react-chartjs-2";
 import {Bar} from "react-chartjs-2";
 import {useCallback, useEffect, useState} from "react";
+import useWindowSize from "../../services/useWindowSize";
+
 
 const TotalCountryRecorvered=(props)=>{
     const [dataDeaths, setDataDeaths] = useState([]);
     const [dates,setDates] = useState()
+    const size = useWindowSize()
+    const sizeWidth = size.width
 
     const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
 
@@ -51,7 +55,7 @@ const TotalCountryRecorvered=(props)=>{
     if (!dataDeaths) {
         return (
             <div className={classes.main}>
-                <h4>Something went wrong! Try search again (:</h4>
+                <span className={classes.error}>Something went wrong! Try search again (:</span>
             </div>
         );
     }
@@ -84,8 +88,9 @@ const TotalCountryRecorvered=(props)=>{
 
     return(<div className={classes.main}>
             <h1 className={classes.title}>Recovered cases</h1>
-            <Bar  className={classes.chart}  data={state}
-                        />
+            <div className={classes.chartDiv}>
+                <Bar data={state} options={{maintainAspectRatio: false}} height={85} width={233}/>
+            </div>
         </div>
     )
 }

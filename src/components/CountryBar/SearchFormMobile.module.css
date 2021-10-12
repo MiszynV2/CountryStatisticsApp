@@ -1,50 +1,59 @@
 .input_form{
     z-index: 1;
-    width: 40%;
+    width: 100vw;
     color: #8f7f8c;
 }
 .react_autosuggest__container {
     position: relative;
     margin-top:43px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
 
 }
 
 .react_autosuggest__input {
-    width: 240px;
     height: 30px;
+    width: 100vw;
     padding: 10px 20px;
     font-family: Helvetica, sans-serif;
     font-weight: 300;
     font-size: 16px;
     background-color: var(--autosuggest-bg-color);
     color:  var(--autosuggest-text-color);
-    border: 1px solid #aaa;
+    border: 0 solid #aaa;
     border-radius: 4px;
+    display: flex;
+    position: center;
 }
 
 .react_autosuggest__input__focused {
     outline: none;
     color:  var(--autosuggest-text-color);
+    width:100%;
 }
 
 .react_autosuggest__input__open {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     color:  var(--autosuggest-text-color);
+    width:100%;
 
 }
 
 .react_autosuggest__suggestions_container {
     display: none;
-    background-color: #4a4070;
+    background-color: var(--autosuggest-bg-color);
     color:  var(--autosuggest-text-color);
+    width:100%;
 }
 
 .react_autosuggest__suggestions_container__open {
     display: block;
     position: absolute;
     top: 51px;
-    width: 280px;
+    width:100%;
     background-color: var(--autosuggest-bg-color);
     color:  var(--autosuggest-text-color);
     font-family: Helvetica, sans-serif;
@@ -67,7 +76,7 @@
 }
 
 .react_autosuggest__suggestion__highlighted {
-    background-color: #ddd;
+    background-color: var(--autosuggest-suggestion-highlighted);
 }
 
 ::placeholder{

@@ -5,7 +5,12 @@
     padding: 30px;
 }
 
+.chartDiv{
+    height: calc(100% - 60px);
+}
+
 .title{
+    margin-bottom: 50px;
     text-align: left;
     font-size: 20px;
     font-style: normal;
@@ -27,4 +32,9 @@
         border-radius: var(--main-radius);
         padding: 30px 30px 100px 30px;
     }
+}
+
+.error{
+    font-size:20px;
+    color:var(--main-text-color);
 }

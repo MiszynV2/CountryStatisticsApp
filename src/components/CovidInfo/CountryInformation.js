@@ -14,7 +14,6 @@ const LOADING_STATE = {
 const CountryInformation = (props) => {
     const [data, setData] = useState();
     const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
-
     const FetchingCovidHandler = useCallback(async () => {
         setLoadingStatus(LOADING_STATE.pending);
         try {
@@ -27,6 +26,9 @@ const CountryInformation = (props) => {
             }
 
             setData(data)
+            console.log('data',data)
+            console.log('datainfo',data[0].population)
+
             setLoadingStatus(LOADING_STATE.resolved);
         } catch (e) {
 
@@ -59,22 +61,22 @@ const CountryInformation = (props) => {
     }
 
     return (
-         <div className={classes.main}>
+        <div className={classes.main}>
 
-             <div className={classes.mainInfo}>
-                 <div className={classes.flagTitle}>
-             <img className={classes.flag} alt={''} src={data.flag}/>
-             <span className={classes.title}>{data.name}</span>
-                 </div>
-                 <span className={classes.subtitle}>Country data</span>
-             </div>
-                 <ul className={classes.list}>
-                     <li className={classes.info}><span className={classes.firstInfo}>Region</span><span className={classes.regionInfo}>{data.region}</span></li>
-                     <li className={classes.info}><span className={classes.firstInfo}>Capital</span><span className={classes.capitalInfo}>{data.capital}</span></li>
-                     <li className={classes.info}><span className={classes.firstInfo}>Language</span><span className={classes.languagesInfo}>{data.languages[0].name}</span></li>
-                     <li className={classes.info}><span className={classes.firstInfo}>Population</span><span className={classes.populationInfo}>{data.population.toLocaleString()}</span></li>
-                 </ul>
-             </div>
+            <div className={classes.mainInfo}>
+                <div className={classes.flagTitle}>
+                    <img className={classes.flag} alt={''} src={data.flags}/>
+                    <span className={classes.title}>{data[0].altSpellings[2]}</span>
+                </div>
+                <span className={classes.subtitle}>Country data</span>
+            </div>
+            <ul className={classes.list}>
+                <li className={classes.info}><span className={classes.firstInfo}>Region</span><span className={classes.regionInfo}>{data[0].region}</span></li>
+                <li className={classes.info}><span className={classes.firstInfo}>Capital</span><span className={classes.capitalInfo}>{data[0].capital}</span></li>
+                <li className={classes.info}><span className={classes.firstInfo}>Status</span><span className={classes.languagesInfo}>{data[0].status}</span></li>
+                <li className={classes.info}><span className={classes.firstInfo}>Population</span><span className={classes.populationInfo}>{data[0].population.toLocaleString()}</span></li>
+            </ul>
+        </div>
     )
 }
 

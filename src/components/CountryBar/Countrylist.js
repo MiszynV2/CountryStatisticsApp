@@ -14,7 +14,17 @@ const CountryList = ({
                          totalPages
                      }) => {
 
-    const pageSize = 8
+    const size = useWindowSize()
+    const pageWidth = size.width
+    const pageHeight = size.height
+    let pageSize = Math.floor(pageHeight/120)
+    if(pageWidth>1200){
+        pageSize=7
+    }else{
+        pageSize=18
+    }
+
+
     const paginatedListOfCountry = countries.slice((currentPage-1)*pageSize,currentPage*pageSize);
     return (<div className={classes.listWrapper}>
             <button onClick={onButtonUp}  className={currentPage!==1 ? classes.upButton : classes.upButtonDisable}> {currentPage!==1 ?<FontAwesomeIcon icon={faArrowUp} className={classes.icon}/>:''}</button>

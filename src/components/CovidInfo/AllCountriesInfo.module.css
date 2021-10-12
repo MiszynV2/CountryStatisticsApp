@@ -24,6 +24,7 @@
   background-color: var(--main-bg-color);
   border-radius: var(--main-radius);
   grid-area:totalInfo/ totalInfo / continent / continent;
+  height: 550px;
 }
 
 
@@ -35,6 +36,7 @@
   }}
 
 .title{
+
   font-size: 20px;
   font-style: normal;
   font-weight: 600;

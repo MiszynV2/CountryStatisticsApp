@@ -4,8 +4,8 @@
         z-index: 0;
         grid-area: generalInfo;
         display: grid;
-        grid-template-rows: 348px 30px 258px 30px 258px 30px 258px;
-        grid-template-columns: 97vw;
+        grid-template-rows: 348px 30px 354px  30px 354px  30px 354px;
+        grid-template-columns: 100vw;
         grid-template-areas:
         'countryCovid'
         '.'
@@ -24,8 +24,8 @@
         z-index: 0;
         grid-area: generalInfo;
         display: grid;
-        grid-template-rows:  348px 30px 258px 30px 258px 30px 258px;
-        grid-template-columns: calc(100vw - 330px);
+        grid-template-rows:  348px 30px 354px 30px 354px 30px 354px;
+        grid-template-columns: calc(100vw - 264px);
         grid-template-areas:
         'countryCovid'
         '.'

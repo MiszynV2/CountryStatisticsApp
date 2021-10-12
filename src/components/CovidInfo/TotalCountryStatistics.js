@@ -2,14 +2,17 @@ import classes from './TotalCountryStatistics.module.css'
 import CovidApi, {totalCasesCovidAPI,totalDeathsCovidAPI,totalRecorveredCovidAPI} from '../../services/covid-api'
 import {useCallback, useEffect, useState} from "react";
 import {LOADING_STATE} from "../../constants";
-import {Line} from "react-chartjs-2";
+import {Bar, Bubble, Doughnut, Line} from "react-chartjs-2";
 import useWindowSize from "../../services/useWindowSize";
-import {Bar} from "react-chartjs-2";
+import {Pie} from "react-chartjs-2";
+
 
 
 const TotalCountryStatistics=(props)=>{
     const [dataCases, setDataCases] = useState([]);
     const [dates,setDates] = useState()
+    const size = useWindowSize()
+    const sizeWidth = size.width
 
     const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
 
@@ -59,7 +62,7 @@ const TotalCountryStatistics=(props)=>{
     if (!dataCases) {
         return (
             <div className={classes.main}>
-                <h4>Something went wrong! Try search again (:</h4>
+                <span className={classes.error}>Something went wrong! Try search again (:</span>
             </div>
         );
     }
@@ -96,19 +99,15 @@ const TotalCountryStatistics=(props)=>{
         },
         scales: { xAxes: [{ display: false, }], yAxes: [{ display: false, }], },
     }
-    const options={
-        legend: {
-            display: false,
-        },
-
-    };
 
 
 
         return(<div className={classes.main}>
             <h1 className={classes.title}>Total cases</h1>
-            <Bar data={state} options={options} className={classes.chart}  />
-        </div>
+            <div className={classes.chartDiv}>
+                <Bar data={state} options={{maintainAspectRatio: false}} height={85} width={233}/>
+            </div>
+            </div>
         )
 }
 export default TotalCountryStatistics

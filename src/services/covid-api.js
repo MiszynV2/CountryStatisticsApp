@@ -1,6 +1,6 @@
 const CountryInfos = async (iso) => {
 
-    const response = await fetch(`https://restcountries.eu/rest/v2/alpha/${iso}`)
+    const response = await fetch(`https://restcountries.com/v3.1/alpha/${iso}`)
 
     if (!response.ok) {
         return {
