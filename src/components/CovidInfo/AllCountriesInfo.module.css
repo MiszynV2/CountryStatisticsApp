@@ -1,0 +1,65 @@
+.listItem {
+  background-color: var(--covidInfoListItem-bg-color);
+  list-style: none;
+  text-align: left;
+  font-size: 1.2em;
+  color: var(--country-text);
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 910px;
+  height: 515px;
+  margin-left: 90px;
+  margin-top: 120px;
+}
+
+
+
+.icons {
+  margin-right: 16px;
+}
+
+.main{
+  background-color: var(--main-bg-color);
+  border-radius: var(--main-radius);
+  grid-area:totalInfo/ totalInfo / continent / continent;
+  height: 550px;
+}
+
+
+@media (max-width: 1080px) {
+  .main{
+    background-color: var(--main-bg-color);
+    border-radius: var(--main-radius);
+    grid-area:countryCovid / countryCovid / continent / continent;
+  }}
+
+.title{
+
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  padding-top: -40px;
+  padding-left: -40px;
+  width: 150px;
+  height: 5px;
+  font-family: "Roboto Light",sans-serif;
+  color:var(--main-text-color);
+}
+
+.subtitle{
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  padding-top: 10px;
+  padding-left: 30px;
+  width: 150px;
+  height: 5px;
+  color:var(--main-text-color);
+  font-family: "Roboto Light",sans-serif;
+}

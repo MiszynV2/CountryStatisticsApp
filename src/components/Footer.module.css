@@ -1,0 +1,38 @@
+.footer {
+    background-color: var(--main-bg-color);
+    border-radius: var(--main-radius);
+    text-decoration: none;
+    grid-area: footer;
+    margin-top: 10px;
+
+}
+.img{
+    width: 16px;
+    background-color:var(--main-text-color);
+}
+.title{
+    font-size: 20px;
+    font-weight: 750;
+    padding-left: 30px;
+    color:var(--main-text-color)
+}
+.subtitle{
+    font-size: 15px;
+    font-weight: 500;
+    padding-right: 43px;
+    color:var(--main-text-color)
+}
+.list{
+    text-decoration: none;
+    padding-right: 10px;
+}
+
+.list{
+    padding-inline-start: 30px;
+}
+
+.link{
+    padding-left: 10px;
+    text-decoration: none;
+    color:var(--main-text-color);
+}

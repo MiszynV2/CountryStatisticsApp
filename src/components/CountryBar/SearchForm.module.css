@@ -1,0 +1,34 @@
+.input_form {
+    position: relative;
+    overflow: hidden;
+    height: 40px;
+    margin-top: 20px;
+    background: var(--search-input-bg);
+    border-radius: 4px;
+    display: flex;
+    color:var(--text-input-color);
+}
+
+.icon{
+    width: 20px;
+    padding-top: 11px;
+    margin-left: 20px;
+}
+.input {
+    background: var(--search-input-bg);
+    border: none;
+    padding: 6px 12px;
+    box-sizing: border-box;
+    color: var(--text-input-color);
+
+}
+::placeholder{
+    color: var(--text-input-color);
+}
+.input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+
+
+

@@ -1,0 +1,85 @@
+.input_form{
+    z-index: 1;
+    width: 100vw;
+    color: #8f7f8c;
+}
+.react_autosuggest__container {
+    position: relative;
+    margin-top:43px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.react_autosuggest__input {
+    height: 30px;
+    width: 100vw;
+    padding: 10px 20px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    background-color: var(--autosuggest-bg-color);
+    color:  var(--autosuggest-text-color);
+    border: 0 solid #aaa;
+    border-radius: 4px;
+    display: flex;
+    position: center;
+}
+
+.react_autosuggest__input__focused {
+    outline: none;
+    color:  var(--autosuggest-text-color);
+    width:100%;
+}
+
+.react_autosuggest__input__open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color:  var(--autosuggest-text-color);
+    width:100%;
+
+}
+
+.react_autosuggest__suggestions_container {
+    display: none;
+    background-color: var(--autosuggest-bg-color);
+    color:  var(--autosuggest-text-color);
+    width:100%;
+}
+
+.react_autosuggest__suggestions_container__open {
+    display: block;
+    position: absolute;
+    top: 51px;
+    width:100%;
+    background-color: var(--autosuggest-bg-color);
+    color:  var(--autosuggest-text-color);
+    font-family: Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    z-index: 2;
+}
+
+.react_autosuggest__suggestions_list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.react_autosuggest__suggestion {
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.react_autosuggest__suggestion__highlighted {
+    background-color: var(--autosuggest-suggestion-highlighted);
+}
+
+::placeholder{
+    color:  var(--autosuggest-text-color);
+    text-decoration: none;
+}
