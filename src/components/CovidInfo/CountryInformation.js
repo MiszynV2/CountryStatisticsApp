@@ -23,8 +23,6 @@ const CountryInformation = (props) => {
       }
 
       setData(data);
-      console.log("data", data);
-      console.log("datainfo", data[0].population);
 
       setLoadingStatus(LOADING_STATE.resolved);
     } catch (e) {}
@@ -52,13 +50,12 @@ const CountryInformation = (props) => {
       </div>
     );
   }
-  console.log(data, "countryinformation data");
   return (
     <div className={classes.main}>
       <div className={classes.mainInfo}>
         <div className={classes.flagTitle}>
           <img className={classes.flag} alt={""} src={data[0].flags.svg} />
-          <span className={classes.title}>{data[0].altSpellings[2]}</span>
+          <span className={classes.title}>{data[0].name.common}</span>
         </div>
         <span className={classes.subtitle}>Country data</span>
       </div>

@@ -22,7 +22,6 @@ const NavigationBar = ({ onClick }) => {
       }
 
       const data = await response.json();
-      console.log("navigationbar", data);
 
       const loadedCountries = data.map((country) => ({
         name: country.name.common.toLowerCase(),
@@ -42,13 +41,7 @@ const NavigationBar = ({ onClick }) => {
   }, []);
 
   const getFilteredInputCountries = (inputInfo) => {
-    console.log(inputInfo, "inputinfo navbar");
-    console.log(countriesListTotal, "inputinfo country");
     if (!inputInfo) {
-      console.log(
-        inputInfo,
-        "inputInfo!!!!AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-      );
       setCountriesList(countriesListTotal);
       setSearchPhrase("");
       setTotalPages(
@@ -66,7 +59,6 @@ const NavigationBar = ({ onClick }) => {
 
     setTotalPages(Math.floor(filteredList.length / INIT_COUNTRY_PER_PAGE) + 1);
     setCountriesList(filteredList);
-    console.log(filteredList, searchPhrase, "filteredList navbar");
   };
 
   useEffect(() => {

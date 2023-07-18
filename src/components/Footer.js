@@ -13,7 +13,7 @@ const Footer = () => {
           </a>
         </li>
         <li>
-          <img className={classes.img} alt="github logo" />
+          <img className={classes.img} alt="linkedin logo" />
           <a className={classes.link} href="https://github.com/MiszynV2">
             Linkedin
           </a>

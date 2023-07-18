@@ -4,13 +4,11 @@ import React, { useRef } from "react";
 import classes from "./SearchForm.module.css";
 
 const SearchForm = (props) => {
-  console.log(props, "props");
   const textInputRef = useRef();
 
   const handleInputChange = (event) => {
     event.persist(); // Remove synthetic event from the pool
     const value = event.target.value;
-    console.log(value, "value");
     props.onInputChange(value);
   };
 

@@ -27,9 +27,6 @@ main {
   justify-content: center;
 }
 
-.main__general-info {
-}
-
 header {
   border-radius: var(--main-radius);
   background-color: var(--main-bg-color);

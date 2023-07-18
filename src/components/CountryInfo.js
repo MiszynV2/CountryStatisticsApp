@@ -1,11 +1,10 @@
 import CountryInformation from "./CovidInfo/CountryInformation";
 import CountryDetail from "./CountryInfo/CountryDetail";
-import TotalCountryStatistics from "./CovidInfo/TotalCountryStatistics";
-import TotalCountryDeaths from "./CovidInfo/TotalCountryDeaths";
-import TotalCountryRecorvered from "./CovidInfo/TotalCountryRecorvered";
+import TotalCountryPopulation from "./CovidInfo/TotalCountryPopulation";
+import TotalCountryPKB from "./CovidInfo/TotalCountryPKB";
+import TotalCountryRecorvered from "./CovidInfo/TotalCountryUrbanization";
 import classes from "./CountryInfo.module.css";
 const CountryInfo = ({ country }) => {
-  console.log("aaaaaaaaaaa", country);
   return (
     <>
       <CountryInformation
@@ -13,9 +12,21 @@ const CountryInfo = ({ country }) => {
         name={country.country}
         iso={country.iso}
       />
-      <TotalCountryRecorvered name={country.slug} fullname={country.country} />
-      <TotalCountryDeaths name={country.slug} fullname={country.country} />
-      <TotalCountryStatistics name={country.slug} fullname={country.country} />
+      <TotalCountryRecorvered
+        name={country.slug}
+        fullname={country.country}
+        iso={country.iso}
+      />
+      <TotalCountryPKB
+        name={country.slug}
+        fullname={country.country}
+        iso={country.iso}
+      />
+      <TotalCountryPopulation
+        name={country.slug}
+        fullname={country.country}
+        iso={country.iso}
+      />
     </>
   );
 };

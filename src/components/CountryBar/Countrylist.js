@@ -13,16 +13,6 @@ const CountryList = ({
   currentPage,
   totalPages,
 }) => {
-  console.log(
-    onClick,
-    countries,
-    onButtonUp,
-    onButtonDown,
-    searchPhrase,
-    currentPage,
-    totalPages,
-    "onClick,countries,onButtonUp,onButtonDown,searchPhrase,currentPage,totalPages,"
-  );
   const size = useWindowSize();
   const pageWidth = size.width;
   const pageHeight = size.height;

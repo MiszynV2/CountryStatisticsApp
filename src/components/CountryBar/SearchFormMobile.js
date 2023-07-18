@@ -22,7 +22,6 @@ const SearchFormMobile = (props) => {
         slug: country.altSpellings[1],
         iso: country.cca2,
       }));
-      console.log(loadedCountries);
       setCountriesList(loadedCountries);
       setSuggestions(loadedCountries);
     } catch (error) {
