@@ -4,13 +4,10 @@ import CovidApi from "../../services/covid-api";
 
 import { Bar } from "react-chartjs-2";
 import { useCallback, useEffect, useState } from "react";
-import useWindowSize from "../../services/useWindowSize";
 
 const TotalCountryUrbanization = (props) => {
   const [dataUrbanization, setDataUrbanization] = useState([]);
   const [dates, setDates] = useState();
-  const size = useWindowSize();
-  const sizeWidth = size.width;
 
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
 
@@ -31,7 +28,7 @@ const TotalCountryUrbanization = (props) => {
     );
 
     setLoadingStatus(LOADING_STATE.resolved);
-  }, [props.name]);
+  }, [props.iso]);
 
   const mappedUrbanization = (dataUrbanization || []).map((date) => {
     return date.value;
@@ -64,7 +61,37 @@ const TotalCountryUrbanization = (props) => {
       </div>
     );
   }
-  console.log(dataUrbanization, "dataUrbanization", mappedUrbanization);
+
+
+  const chartOptions = {
+    plugins: {
+      legend: {
+        labels: {
+          color: "#000000", // Kolor tekstu legendy
+        },
+      },
+    },
+    elements: {
+      point: {
+        backgroundColor: "#000000", // Kolor punktów na wykresie
+      },
+    },
+    maintainAspectRatio: false,
+    responsive: true,
+    scales: {
+      y: {
+        ticks: {
+          color: "#E8BDE",
+        },
+      },
+      x: {
+        ticks: {
+          color: "#E8BDE",
+        },
+      },
+    },
+  };
+
   const state = {
     labels: dates,
     datasets: [
@@ -88,12 +115,7 @@ const TotalCountryUrbanization = (props) => {
     <div className={classes.main}>
       <h1 className={classes.title}>Urbanization level (%)</h1>
       <div className={classes.chartDiv}>
-        <Bar
-          data={state}
-          options={{ maintainAspectRatio: false }}
-          height={85}
-          width={233}
-        />
+        <Bar data={state} options={chartOptions} height={85} width={233} />
       </div>
     </div>
   );

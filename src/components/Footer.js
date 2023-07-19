@@ -1,5 +1,7 @@
 import classes from "./Footer.module.css";
-
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExternalLinkSquareAlt } from "@fortawesome/free-solid-svg-icons";
 const Footer = () => {
   return (
     <div className={classes.footer}>
@@ -7,14 +9,14 @@ const Footer = () => {
       <h2 className={classes.subtitle}>Wojciech Marciniszyn</h2>
       <ul className={classes.list}>
         <li>
-          <img className={classes.img} alt="github logo" />
           <a className={classes.link} href="https://github.com/MiszynV2">
+            <FontAwesomeIcon icon={faExternalLinkSquareAlt} />
             Github
           </a>
         </li>
         <li>
-          <img className={classes.img} alt="linkedin logo" />
           <a className={classes.link} href="https://github.com/MiszynV2">
+            <FontAwesomeIcon icon={faExternalLinkSquareAlt} />
             Linkedin
           </a>
         </li>

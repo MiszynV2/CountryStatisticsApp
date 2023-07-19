@@ -1,15 +1,13 @@
 import classes from "./TotalCountryPKB.module.css";
-import CovidApi, { totalPKBCovidAPI } from "../../services/covid-api";
+import CovidApi from "../../services/covid-api";
 import { useCallback, useEffect, useState } from "react";
 import { LOADING_STATE } from "../../constants";
 import { Bar } from "react-chartjs-2";
-import useWindowSize from "../../services/useWindowSize";
 
 const TotalCountryPKB = (props) => {
   const [dataPKB, setDataPKB] = useState([]);
   const [dates, setDates] = useState();
-  const size = useWindowSize();
-  const sizeWidth = size.width;
+
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
   const TotalPKBCovidAPI = useCallback(async () => {
     setLoadingStatus(LOADING_STATE.pending);
@@ -63,6 +61,35 @@ const TotalCountryPKB = (props) => {
     );
   }
 
+  const chartOptions = {
+    plugins: {
+      legend: {
+        labels: {
+          color: "#000000", // Kolor tekstu legendy
+        },
+      },
+    },
+    elements: {
+      point: {
+        backgroundColor: "#000000", // Kolor punktów na wykresie
+      },
+    },
+    maintainAspectRatio: false,
+    responsive: true,
+    scales: {
+      y: {
+        ticks: {
+          color: "#E8BDE",
+        },
+      },
+      x: {
+        ticks: {
+          color: "#E8BDE",
+        },
+      },
+    },
+  };
+
   const state = {
     labels: dates,
     datasets: [
@@ -86,12 +113,7 @@ const TotalCountryPKB = (props) => {
     <div className={classes.main}>
       <h1 className={classes.title}>Country PKB</h1>
       <div className={classes.chartDiv}>
-        <Bar
-          data={state}
-          options={{ maintainAspectRatio: false }}
-          height={85}
-          width={233}
-        />
+        <Bar data={state} options={chartOptions} height={85} width={233} />
       </div>
     </div>
   );

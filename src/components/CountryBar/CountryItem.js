@@ -1,9 +1,6 @@
-import { image } from "d3";
 import classes from "./CountryItem.module.css";
 const CountryItem = ({ onCountryClick, country, searchPhrase }) => {
-  //console.log(country, "countrytem");
   const countryNameSplit = country.name.split("");
-  const countryFirstLetterUp = countryNameSplit[0].toUpperCase();
   countryNameSplit[0] = countryNameSplit[0].toUpperCase();
   return (
     <li

@@ -14,29 +14,26 @@
   margin-top: 120px;
 }
 
-
-
 .icons {
   margin-right: 16px;
 }
 
-.main{
+.main {
   background-color: var(--main-bg-color);
   border-radius: var(--main-radius);
-  grid-area:totalInfo/ totalInfo / continent / continent;
+  grid-area: totalInfo/ totalInfo / continent / continent;
   height: 550px;
 }
 
-
 @media (max-width: 1080px) {
-  .main{
+  .main {
     background-color: var(--main-bg-color);
     border-radius: var(--main-radius);
-    grid-area:countryCovid / countryCovid / continent / continent;
-  }}
+    grid-area: countryCovid / countryCovid / continent / continent;
+  }
+}
 
-.title{
-
+.title {
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -46,11 +43,11 @@
   padding-left: -40px;
   width: 150px;
   height: 5px;
-  font-family: "Roboto Light",sans-serif;
-  color:var(--main-text-color);
+  font-family: "Roboto Light", sans-serif;
+  color: var(--main-text-color);
 }
 
-.subtitle{
+.subtitle {
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -60,6 +57,6 @@
   padding-left: 30px;
   width: 150px;
   height: 5px;
-  color:var(--main-text-color);
-  font-family: "Roboto Light",sans-serif;
+  color: var(--main-text-color);
+  font-family: "Roboto Light", sans-serif;
 }

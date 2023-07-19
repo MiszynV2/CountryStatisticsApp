@@ -1,25 +1,18 @@
 import classes from "./TotalCountryPopulation.module.css";
-import CovidApi, {
-  totalPopulationCovidAPI,
-  totalUrbanizationCovidAPI,
-  totalRecorveredCovidAPI,
-} from "../../services/covid-api";
+import CovidApi from "../../services/covid-api";
 import { useCallback, useEffect, useState } from "react";
 import { LOADING_STATE } from "../../constants";
 import { Bar } from "react-chartjs-2";
-import useWindowSize from "../../services/useWindowSize";
 
 const TotalCountryPopulation = (props) => {
   const [dataPopulation, setDataPopulation] = useState([]);
   const [dates, setDates] = useState();
-  const size = useWindowSize();
-  const sizeWidth = size.width;
 
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
 
   const TotalPopulationCovidAPI = useCallback(async () => {
     setLoadingStatus(LOADING_STATE.pending);
-    console.log("TotalCountryStatistics props", props);
+
     const response = await CovidApi.totalPopulationCovidAPI(props.iso);
 
     if (!response.isOK) {
@@ -35,12 +28,8 @@ const TotalCountryPopulation = (props) => {
     );
 
     setLoadingStatus(LOADING_STATE.resolved);
-  }, [props.name]);
+  }, [props.iso]);
 
-  // setFilteredDates((dataPopulation||[]).filter(date=>
-  //     date.Province===''
-  // ))
-  //if(dataPopulation===undefined)return
   const mappedPopulation = (dataPopulation || []).map((date) => {
     return date?.value;
   });
@@ -73,6 +62,34 @@ const TotalCountryPopulation = (props) => {
       </div>
     );
   }
+  const chartOptions = {
+    plugins: {
+      legend: {
+        labels: {
+          color: "#000000", // Kolor tekstu legendy
+        },
+      },
+    },
+    elements: {
+      point: {
+        backgroundColor: "#000000", // Kolor punktów na wykresie
+      },
+    },
+    maintainAspectRatio: false,
+    responsive: true,
+    scales: {
+      y: {
+        ticks: {
+          color: "#E8BDE",
+        },
+      },
+      x: {
+        ticks: {
+          color: "#E8BDE",
+        },
+      },
+    },
+  };
 
   const state = {
     labels: dates,
@@ -102,12 +119,7 @@ const TotalCountryPopulation = (props) => {
     <div className={classes.main}>
       <h1 className={classes.title}>Total Population</h1>
       <div className={classes.chartDiv}>
-        <Bar
-          data={state}
-          options={{ maintainAspectRatio: false }}
-          height={85}
-          width={233}
-        />
+        <Bar data={state} options={chartOptions} height={85} width={233} />
       </div>
     </div>
   );

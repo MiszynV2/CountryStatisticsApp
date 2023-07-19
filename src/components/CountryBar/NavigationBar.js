@@ -3,11 +3,17 @@ import CountryList from "./Countrylist";
 import SearchForm from "./SearchForm";
 import classes from "./NavigationBar.module.css";
 import useWindowSize from "../../services/useWindowSize";
-import SearchFormMobile from "./SearchFormMobile";
-
-const INIT_COUNTRY_PER_PAGE = 8;
 
 const NavigationBar = ({ onClick }) => {
+  const size = useWindowSize();
+  const pageWidth = size.width;
+  const pageHeight = size.height;
+  let INIT_COUNTRY_PER_PAGE = Math.floor(pageHeight / 120);
+  if (pageWidth > 1200) {
+    INIT_COUNTRY_PER_PAGE = 8;
+  } else {
+    INIT_COUNTRY_PER_PAGE = 16;
+  }
   const [currentPage, setCurrentPage] = useState(1);
   const [searchPhrase, setSearchPhrase] = useState("");
   const [countriesList, setCountriesList] = useState([]);
@@ -32,13 +38,13 @@ const NavigationBar = ({ onClick }) => {
       setCountriesList(loadedCountries);
       setCountriesListTotal(loadedCountries);
       setTotalPages(
-        Math.floor(loadedCountries.length / INIT_COUNTRY_PER_PAGE) - 1
+        Math.floor(loadedCountries.length / INIT_COUNTRY_PER_PAGE + 1)
       );
     } catch (error) {
       // TODO: handle errors properly
       console.error(error);
     }
-  }, []);
+  }, [INIT_COUNTRY_PER_PAGE]);
 
   const getFilteredInputCountries = (inputInfo) => {
     if (!inputInfo) {

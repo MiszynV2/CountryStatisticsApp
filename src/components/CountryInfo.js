@@ -1,9 +1,8 @@
 import CountryInformation from "./CovidInfo/CountryInformation";
-import CountryDetail from "./CountryInfo/CountryDetail";
 import TotalCountryPopulation from "./CovidInfo/TotalCountryPopulation";
 import TotalCountryPKB from "./CovidInfo/TotalCountryPKB";
 import TotalCountryRecorvered from "./CovidInfo/TotalCountryUrbanization";
-import classes from "./CountryInfo.module.css";
+
 const CountryInfo = ({ country }) => {
   return (
     <>

@@ -4,29 +4,31 @@
   margin: 0;
   background-color: var(--main-bg-color);
 }
-.upButton{
+.upButton {
   width: 80%;
-
+  border-radius: var(--main-radius);
   text-decoration: none;
   border: none;
   margin-top: 10px;
   margin-left: 25px;
   margin-bottom: 10px;
-  background-color: var(--main-bg-color);
+  color: var(--btn-color);
+  background-color: var(--btn-bg-color);
   height: 40px;
-
 }
-.downButton{
+.downButton {
+  border-radius: var(--main-radius);
   width: 80%;
   margin-left: 25px;
   margin-top: 20px;
   text-align: center;
   text-decoration: none;
   border: none;
-  background-color: var(--main-bg-color);
+  color: var(--btn-color);
+  background-color: var(--btn-bg-color);
   height: 40px;
 }
-.icon{
+.icon {
   margin: auto;
 }
 
@@ -37,43 +39,30 @@
 }
 
 .upButton:hover {
-  background-color:var(--btn-hover);
+  background-color: var(--btn-hover);
   color: var(--main-text-color);
   font-weight: 500;
 }
 @media (max-width: 700px) {
-  .listWrapper{
-    display:none;
+  .listWrapper {
+    display: none;
   }
-
 }
 
-.listWrapper{
-
+.listWrapper {
 }
-.downButtonDisable{
-  width: 80%;
-  margin-left: 25px;
-  margin-top: 30px;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  background-color: var(--main-bg-color);
-  height: 40px;
+.downButtonDisable {
+  width: 0;
+  height: 0;
+  display: none;
 }
-.upButtonDisable{
-  width: 80%;
-  text-decoration: none;
-  border: none;
-  margin-top: 10px;
-  margin-left: 25px;
-  margin-bottom: 15px;
-  background-color: var(--main-bg-color);
-  height: 40px;
-
+.upButtonDisable {
+  width: 0;
+  height: 0;
+  display: none;
 }
 @media (max-width: 1080px) {
-  .upButton{
+  .upButton {
     width: 80%;
     display: flex;
     text-decoration: none;
@@ -82,9 +71,8 @@
     margin-bottom: 15px;
     background-color: var(--main-bg-color);
     height: 40px;
-
   }
-  .downButtonDisable{
+  .downButtonDisable {
     width: 80%;
     display: flex;
     margin-top: 30px;
@@ -94,7 +82,7 @@
     background-color: var(--main-bg-color);
     height: 40px;
   }
-  .upButtonDisable{
+  .upButtonDisable {
     width: 80%;
     text-decoration: none;
     border: none;
@@ -103,9 +91,8 @@
     background-color: var(--main-bg-color);
     height: 40px;
     margin-top: 30px;
-
   }
-  .downButton{
+  .downButton {
     width: 80%;
     display: flex;
     margin-top: 30px;
@@ -114,19 +101,18 @@
     border: none;
     background-color: var(--main-bg-color);
     height: 40px;
-  }}
+  }
+}
 
 @media (max-width: 700px) {
   .main {
-
-    grid-template-rows:60px 30px 60px 1680px 200px;
+    grid-template-rows: 60px 30px 60px 1680px 200px;
     grid-template-columns: 100%;
     grid-template-areas:
-      'header'
-      '.'
+      "header"
+      "."
       "generalInfo"
-      '.'
+      "."
       "footer";
   }
-
 }

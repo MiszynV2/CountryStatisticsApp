@@ -97,7 +97,7 @@ header {
     display: flex;
   }
   .main {
-    grid-template-rows: 64px 30px 625px 20px;
+    grid-template-rows: 64px 30px 660px 20px;
     grid-template-columns: 300px 28px 50vw;
     grid-template-areas:
       "header header header"

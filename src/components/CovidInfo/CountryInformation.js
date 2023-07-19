@@ -1,6 +1,5 @@
 import { useCallback, useState, useEffect } from "react";
 import classes from "./CountryInformation.module.css";
-import ProvinceDetails from "../ProvinceDetails";
 import CovidApi from "../../services/covid-api";
 
 const LOADING_STATE = {
@@ -26,7 +25,7 @@ const CountryInformation = (props) => {
 
       setLoadingStatus(LOADING_STATE.resolved);
     } catch (e) {}
-  }, [props.name, props.iso]);
+  }, [props.iso]);
 
   useEffect(() => {
     FetchingCovidHandler();
