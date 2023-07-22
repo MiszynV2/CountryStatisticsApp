@@ -1,51 +1,56 @@
-import classes from "./TotalCountryPopulation.module.css";
-import CovidApi from "../../services/covid-api";
-import { useCallback, useEffect, useState } from "react";
+import classes from "./Unemployment.module.css";
 import { LOADING_STATE } from "../../constants";
+import CovidApi from "../../services/covid-api";
 import { Bar } from "react-chartjs-2";
+import { useCallback, useEffect, useState } from "react";
 
-const TotalCountryPopulation = (props) => {
-  const [dataPopulation, setDataPopulation] = useState([]);
-  const [dates, setDates] = useState();
-
+const Unemployment = (props) => {
+  const [dataUrbanization, setDataUrbanization] = useState([]);
+  const [dates, setDates] = useState([]);
+  console.log("bezrobot.iso:", dataUrbanization);
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
 
-  const TotalPopulationCovidAPI = useCallback(async () => {
+  const UnemploymentAPI = useCallback(async () => {
     setLoadingStatus(LOADING_STATE.pending);
 
-    const response = await CovidApi.totalPopulationCovidAPI(props.iso);
-
+    const response = await CovidApi.Unemployment(props.iso);
+    console.log(response, "response");
     if (!response.isOK) {
       setLoadingStatus(LOADING_STATE.rejected);
+      console.log(dataUrbanization, "rrrrrrrrrrrr");
     }
-
-    setDataPopulation(response.data[1].reverse());
-
-    setDates(
-      dataPopulation.map((date) => {
-        return date?.date;
-      })
-    );
+    setDataUrbanization(response.data[1].reverse());
+    console.log(dataUrbanization, "ddddddddddd");
 
     setLoadingStatus(LOADING_STATE.resolved);
   }, [props.iso]);
 
-  const mappedPopulation = (dataPopulation || []).map((date) => {
-    return date?.value;
-  });
+  useEffect(() => {
+    UnemploymentAPI();
+  }, [UnemploymentAPI, props]);
 
   useEffect(() => {
-    TotalPopulationCovidAPI();
-  }, [TotalPopulationCovidAPI]);
+    if (dataUrbanization.length > 0) {
+      setDates(
+        dataUrbanization.map((date) => {
+          return date?.date;
+        })
+      );
+    }
+  }, [dataUrbanization]);
 
-  if (loadingStatus === LOADING_STATE.idle || loadingStatus.pending) {
+  if (
+    loadingStatus === LOADING_STATE.idle ||
+    loadingStatus === LOADING_STATE.pending
+  ) {
     return <div className={classes.main}>LOADING...</div>;
   }
 
   if (loadingStatus === LOADING_STATE.rejected) {
     return <div className={classes.main}>Error</div>;
   }
-  if (!dataPopulation) {
+
+  if (!dataUrbanization) {
     return (
       <div className={classes.main}>
         <span className={classes.error}>
@@ -55,13 +60,14 @@ const TotalCountryPopulation = (props) => {
     );
   }
 
-  if (dataPopulation.length === 0) {
+  if (dataUrbanization.length === 0) {
     return (
       <div className={classes.main}>
         <h4>No data</h4>
       </div>
     );
   }
+
   const chartOptions = {
     plugins: {
       legend: {
@@ -79,11 +85,17 @@ const TotalCountryPopulation = (props) => {
     responsive: true,
     scales: {
       y: {
+        grid: {
+          color: "rgba(200, 200, 200, 0.2)", // Kolor linii siatki dla osi Y
+        },
         ticks: {
           color: "#E8BDE", // Kolor ticków osi Y
         },
       },
       x: {
+        grid: {
+          color: "rgba(200, 200, 200, 0.2)", // Kolor linii siatki dla osi X
+        },
         ticks: {
           color: "#E8BDE", // Kolor ticków osi X
         },
@@ -94,7 +106,7 @@ const TotalCountryPopulation = (props) => {
     labels: dates,
     datasets: [
       {
-        label: "Population",
+        label: "Urbanization",
         fill: true,
         tooltip: false,
         borderWidth: 0,
@@ -102,25 +114,21 @@ const TotalCountryPopulation = (props) => {
         drawBorder: false,
         drawTicks: false,
         display: false,
-        scales: { xAxes: [{ display: false }], yAxes: [{ display: false }] },
-        backgroundColor: "rgba(75,192,192,1)",
-        borderColor: "rgba(0,0,0,0.3)",
-        data: mappedPopulation,
+        backgroundColor: "rgb(212,160,243)",
+        borderColor: "rgba(0,0,0,0.9)",
+        data: dataUrbanization.map((date) => date?.value),
       },
     ],
-    legend: {
-      display: false,
-    },
-    scales: { xAxes: [{ display: false }], yAxes: [{ display: false }] },
   };
 
   return (
     <div className={classes.main}>
-      <h1 className={classes.title}>Total Population</h1>
+      <h1 className={classes.title}>Unemployment (%)</h1>
       <div className={classes.chartDiv}>
         <Bar data={state} options={chartOptions} height={85} width={233} />
       </div>
     </div>
   );
 };
-export default TotalCountryPopulation;
+
+export default Unemployment;

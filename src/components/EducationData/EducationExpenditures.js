@@ -1,50 +1,53 @@
-import classes from "./TotalCountryPopulation.module.css";
+import classes from "./EducationExpenditures.module.css";
 import CovidApi from "../../services/covid-api";
 import { useCallback, useEffect, useState } from "react";
 import { LOADING_STATE } from "../../constants";
 import { Bar } from "react-chartjs-2";
 
-const TotalCountryPopulation = (props) => {
+const EducationExpenditures = (props) => {
   const [dataPopulation, setDataPopulation] = useState([]);
-  const [dates, setDates] = useState();
-
+  const [dates, setDates] = useState([]);
+  console.log("dataPopulation dates", dataPopulation);
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
 
-  const TotalPopulationCovidAPI = useCallback(async () => {
+  const EducationExpendituresAPI = useCallback(async () => {
     setLoadingStatus(LOADING_STATE.pending);
 
-    const response = await CovidApi.totalPopulationCovidAPI(props.iso);
+    const response = await CovidApi.EducationExpenditures(props.iso);
 
     if (!response.isOK) {
       setLoadingStatus(LOADING_STATE.rejected);
     }
-
     setDataPopulation(response.data[1].reverse());
 
-    setDates(
-      dataPopulation.map((date) => {
-        return date?.date;
-      })
-    );
-
     setLoadingStatus(LOADING_STATE.resolved);
-  }, [props.iso]);
-
-  const mappedPopulation = (dataPopulation || []).map((date) => {
-    return date?.value;
-  });
+  }, [props]);
 
   useEffect(() => {
-    TotalPopulationCovidAPI();
-  }, [TotalPopulationCovidAPI]);
+    EducationExpendituresAPI();
+  }, [EducationExpendituresAPI]);
 
-  if (loadingStatus === LOADING_STATE.idle || loadingStatus.pending) {
+  useEffect(() => {
+    if (dataPopulation.length > 0) {
+      setDates(
+        dataPopulation.map((date) => {
+          return date?.date;
+        })
+      );
+    }
+  }, [dataPopulation]);
+
+  if (
+    loadingStatus === LOADING_STATE.idle ||
+    loadingStatus === LOADING_STATE.pending
+  ) {
     return <div className={classes.main}>LOADING...</div>;
   }
 
   if (loadingStatus === LOADING_STATE.rejected) {
     return <div className={classes.main}>Error</div>;
   }
+
   if (!dataPopulation) {
     return (
       <div className={classes.main}>
@@ -62,6 +65,7 @@ const TotalCountryPopulation = (props) => {
       </div>
     );
   }
+
   const chartOptions = {
     plugins: {
       legend: {
@@ -105,7 +109,7 @@ const TotalCountryPopulation = (props) => {
         scales: { xAxes: [{ display: false }], yAxes: [{ display: false }] },
         backgroundColor: "rgba(75,192,192,1)",
         borderColor: "rgba(0,0,0,0.3)",
-        data: mappedPopulation,
+        data: dataPopulation.map((date) => date?.value),
       },
     ],
     legend: {
@@ -116,11 +120,14 @@ const TotalCountryPopulation = (props) => {
 
   return (
     <div className={classes.main}>
-      <h1 className={classes.title}>Total Population</h1>
+      <h1 className={classes.title}>
+        Government expenditure on education, total (% of GDP)
+      </h1>
       <div className={classes.chartDiv}>
         <Bar data={state} options={chartOptions} height={85} width={233} />
       </div>
     </div>
   );
 };
-export default TotalCountryPopulation;
+
+export default EducationExpenditures;

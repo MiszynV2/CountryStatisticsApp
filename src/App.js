@@ -14,8 +14,8 @@ import useWindowSize from "./services/useWindowSize";
 function App() {
   const size = useWindowSize();
   const [country, setCountry] = useState(undefined);
-  const [currentTheme, setTheme] = useState("dark");
-
+  const [currentTheme, setTheme] = useState("light");
+  console.log(country);
   const switchTheme = () => {
     if (currentTheme === "light") {
       document.documentElement.setAttribute("data-theme", "dark");

@@ -1,6 +1,101 @@
 const CountryInfos = async (iso) => {
   const response = await fetch(`https://restcountries.com/v3.1/alpha/${iso}`);
-  console.log("CountryInfos   ", iso);
+
+  if (!response.ok) {
+    return {
+      isOK: false,
+    };
+  }
+  return {
+    isOk: true,
+    data: await response.json(),
+  };
+};
+
+const GDP = async (iso) => {
+  const response = await fetch(
+    `https://api.worldbank.org/v2/country/${iso}/indicator/NY.GDP.MKTP.CD?format=json`
+  );
+
+  if (!response.ok) {
+    return {
+      isOK: false,
+    };
+  }
+  return {
+    isOk: true,
+    data: await response.json(),
+  };
+};
+
+const Inflation = async (iso) => {
+  const response = await fetch(
+    `https://api.worldbank.org/v2/country/${iso}/indicator/FP.CPI.TOTL.ZG?format=json`
+  );
+
+  if (!response.ok) {
+    return {
+      isOK: false,
+    };
+  }
+  return {
+    isOk: true,
+    data: await response.json(),
+  };
+};
+
+const ForeignTrade = async (iso) => {
+  const response = await fetch(
+    `https://api.worldbank.org/v2/country/${iso}/indicator/NE.EXP.GNFS.CD?format=json`
+  );
+
+  if (!response.ok) {
+    return {
+      isOK: false,
+    };
+  }
+  return {
+    isOk: true,
+    data: await response.json(),
+  };
+};
+
+const PublicDebt = async (iso) => {
+  const response = await fetch(
+    `https://api.worldbank.org/v2/country/${iso}/indicator/GC.DOD.TOTL.GD.ZS?format=json`
+  );
+
+  if (!response.ok) {
+    return {
+      isOK: false,
+    };
+  }
+  return {
+    isOk: true,
+    data: await response.json(),
+  };
+};
+
+const SocialDevelopmentIndicators = async (iso) => {
+  const response = await fetch(
+    `https://api.worldbank.org/v2/country/${iso}/indicator/NY.GNP.MKTP.CD?format=json`
+  );
+
+  if (!response.ok) {
+    return {
+      isOK: false,
+    };
+  }
+  return {
+    isOk: true,
+    data: await response.json(),
+  };
+};
+
+const Unemployment = async (iso) => {
+  const response = await fetch(
+    `https://api.worldbank.org/v2/country/${iso}/indicator/SL.UEM.TOTL.ZS?format=json`
+  );
 
   if (!response.ok) {
     return {
@@ -19,7 +114,6 @@ const requestOptions = {
 };
 
 const totalPopulationOfWorldByCountryAPI = async () => {
-  console.log("totalPopulationOfWorldByCountryAPI   ");
   const response = await fetch(
     `https://restcountries.com/v3.1/all`,
     requestOptions
@@ -85,12 +179,86 @@ const totalUrbanizationCovidAPI = async (iso) => {
   };
 };
 
+const NumberOfStudents = async (iso) => {
+  const response = await fetch(
+    `https://api.worldbank.org/v2/country/${iso}/indicator/SE.SEC.ENRR?format=json`
+  );
+
+  if (!response.ok) {
+    return {
+      isOK: false,
+    };
+  }
+  return {
+    isOk: true,
+    data: await response.json(),
+  };
+};
+
+const LiteracyAndNumeracyRates = async (iso) => {
+  const response = await fetch(
+    `https://api.worldbank.org/v2/country/${iso}/indicator/SE.ADT.LITR.ZS?format=json`
+  );
+
+  if (!response.ok) {
+    return {
+      isOK: false,
+    };
+  }
+  return {
+    isOk: true,
+    data: await response.json(),
+  };
+};
+
+const EducationExpenditures = async (iso) => {
+  const response = await fetch(
+    `https://api.worldbank.org/v2/country/${iso}/indicator/SE.XPD.TOTL.GD.ZS?format=json`
+  );
+
+  if (!response.ok) {
+    return {
+      isOK: false,
+    };
+  }
+  return {
+    isOk: true,
+    data: await response.json(),
+  };
+};
+
+const IlliteracyRate = async (iso) => {
+  const response = await fetch(
+    `https://api.worldbank.org/v2/country/${iso}/indicator/SE.ADT.LITR.ZS?format=json`
+  );
+
+  if (!response.ok) {
+    return {
+      isOK: false,
+    };
+  }
+  return {
+    isOk: true,
+    data: await response.json(),
+  };
+};
+
 const API = {
   totalPopulationOfWorldByCountryAPI,
   CountryInfos,
   totalPopulationCovidAPI,
   totalPKBCovidAPI,
   totalUrbanizationCovidAPI,
+  Unemployment,
+  GDP,
+  Inflation,
+  ForeignTrade,
+  PublicDebt,
+  SocialDevelopmentIndicators,
+  NumberOfStudents,
+  LiteracyAndNumeracyRates,
+  EducationExpenditures,
+  IlliteracyRate,
 };
 
 export default API;

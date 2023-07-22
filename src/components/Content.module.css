@@ -1,52 +1,62 @@
-
 @media (max-width: 700px) {
-    .main {
-        z-index: 0;
-        grid-area: generalInfo;
-        display: grid;
-        grid-template-rows: 348px 30px 354px  30px 354px  30px 354px;
-        grid-template-columns: 100vw;
-        grid-template-areas:
-        'countryCovid'
-        '.'
-        'totalInfo'
-        '.'
-        ' vacination'
-        '.'
-        'continent';
-    }
-
-
+  .main {
+    z-index: 0;
+    grid-area: generalInfo;
+    display: grid;
+    grid-template-rows: 348px 30px 354px 30px 354px 30px 354px 30px 354px 30px 354px;
+    grid-template-columns: 100vw;
+    grid-template-areas:
+      "countryCovid"
+      "."
+      "unemployment"
+      "."
+      "gdp"
+      "."
+      "inflation"
+      "."
+      "foreign-trade"
+      "."
+      "public-debt"
+      "."
+      "social-development-indicators";
+  }
 }
 
 @media (min-width: 700px) and (max-width: 1212px) {
-    .main {
-        z-index: 0;
-        grid-area: generalInfo;
-        display: grid;
-        grid-template-rows:  348px 30px 354px 30px 354px 30px 354px;
-        grid-template-columns: calc(100vw - 264px);
-        grid-template-areas:
-        'countryCovid'
-        '.'
-        'totalInfo'
-        '.'
-        ' vacination'
-        '.'
-        'continent';
-    }
+  .main {
+    z-index: 0;
+    grid-area: generalInfo;
+    display: grid;
+    grid-template-rows: 348px 30px 354px 30px 354px 30px 354px 30px 354px 30px 354px;
+    grid-template-columns: calc(100vw - 264px);
+    grid-template-areas:
+      "countryCovid"
+      "."
+      "unemployment"
+      "."
+      "gdp"
+      "."
+      "inflation"
+      "."
+      "foreign-trade"
+      "."
+      "public-debt"
+      "."
+      "social-development-indicators"
+      ".";
+  }
 }
 
 @media (min-width: 1213px) {
-    .main {
-        z-index: 0;
-        grid-area: generalInfo;
-        display: grid;
-        grid-template-rows: 394px 30px 423px;
-        grid-template-columns: 31fr 17fr 2.1fr 17fr 2.1fr 27fr;
-        grid-template-areas:
-        'totalInfo totalInfo totalInfo totalInfo . countryCovid'
-        ' . . . . . .'
-        " vacination vacination . continent continent continent";
-    }
+  .main {
+    z-index: 0;
+    grid-area: generalInfo;
+    display: grid;
+    grid-template-rows: 394px 30px 423px;
+    grid-template-columns: 31fr 17fr 2.1fr 17fr 2.1fr 27fr;
+    grid-template-areas:
+      "totalInfo totalInfo totalInfo totalInfo . countryCovid"
+      " . . . . . ."
+      " vacination vacination . continent continent continent";
+  }
 }

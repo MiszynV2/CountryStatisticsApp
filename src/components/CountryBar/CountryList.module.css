@@ -47,10 +47,25 @@
   .listWrapper {
     display: none;
   }
+  .listWrapper::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .listWrapper::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 3px;
+  }
+
+  .listWrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+
+  .listWrapper::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+    border-radius: 3px;
+  }
 }
 
-.listWrapper {
-}
 .downButtonDisable {
   width: 0;
   height: 0;
@@ -60,6 +75,10 @@
   width: 0;
   height: 0;
   display: none;
+}
+.listWrapper {
+  max-height: 1200px;
+  overflow-y: auto;
 }
 @media (max-width: 1080px) {
   .upButton {
@@ -72,6 +91,29 @@
     background-color: var(--main-bg-color);
     height: 40px;
   }
+  .listWrapper {
+    max-height: 1200px;
+    overflow-y: auto;
+  }
+
+  .listWrapper::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  .listWrapper::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 3px;
+  }
+
+  .listWrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+
+  .listWrapper::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+    border-radius: 3px;
+  }
+
   .downButtonDisable {
     width: 80%;
     display: flex;
@@ -105,6 +147,10 @@
 }
 
 @media (max-width: 700px) {
+  .listWrapper {
+    max-height: 1200px;
+    overflow-y: auto;
+  }
   .main {
     grid-template-rows: 60px 30px 60px 1680px 200px;
     grid-template-columns: 100%;
@@ -114,5 +160,47 @@
       "generalInfo"
       "."
       "footer";
+  }
+  .listWrapper::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  .listWrapper::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 3px;
+  }
+
+  .listWrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+
+  .listWrapper::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+    border-radius: 3px;
+  }
+}
+
+@media (min-width: 1220px) {
+  .listWrapper {
+    max-height: 600px;
+    overflow-y: auto;
+  }
+
+  .listWrapper::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  .listWrapper::-webkit-scrollbar-thumb {
+    background-color: var(--main-text-color);
+    border-radius: 3px;
+  }
+
+  .listWrapper::-webkit-scrollbar-thumb:hover {
+    background-color: var(--main-text-hover);
+  }
+
+  .listWrapper::-webkit-scrollbar-track {
+    background-color: var(--main-bg-color);
+    border-radius: 3px;
   }
 }

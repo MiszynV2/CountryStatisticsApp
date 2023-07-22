@@ -1,0 +1,37 @@
+.main {
+  background-color: var(--main-bg-color);
+  grid-area: public-debt;
+  border-radius: var(--main-radius);
+  padding: 30px;
+}
+
+.title {
+  color: var(--main-text-color);
+  text-align: left;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  height: 5px;
+  font-family: "Roboto Light", sans-serif;
+  padding-top: -40px;
+  margin-bottom: 50px;
+}
+
+.chartDiv {
+  height: calc(100% - 60px);
+}
+.error {
+  font-size: 20px;
+  color: var(--main-text-color);
+}
+
+@media (min-width: 1081px) {
+  .main {
+    background-color: var(--main-bg-color);
+    grid-area: public;
+    border-radius: var(--main-radius);
+    padding: 30px 30px 100px 30px;
+  }
+}

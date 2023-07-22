@@ -1,33 +1,44 @@
 import CountryInformation from "./CovidInfo/CountryInformation";
-import TotalCountryPopulation from "./CovidInfo/TotalCountryPopulation";
-import TotalCountryPKB from "./CovidInfo/TotalCountryPKB";
-import TotalCountryRecorvered from "./CovidInfo/TotalCountryUrbanization";
+import MacroeconomicData from "./CovidInfo/MacroeconomicData";
+import EducationData from "./CovidInfo/EducationData";
+import { useState } from "react";
 
 const CountryInfo = ({ country }) => {
+  const [optionSelected, setOptionSelected] = useState("EducationData");
+
+  const handleOptionClick = (option) => {
+    setOptionSelected(option);
+  };
+
   return (
     <>
-      <CountryInformation
-        slug={country.slug}
-        name={country.country}
-        iso={country.iso}
-      />
-      <TotalCountryRecorvered
-        name={country.slug}
-        fullname={country.country}
-        iso={country.iso}
-      />
-      <TotalCountryPKB
-        name={country.slug}
-        fullname={country.country}
-        iso={country.iso}
-      />
-      <TotalCountryPopulation
-        name={country.slug}
-        fullname={country.country}
-        iso={country.iso}
-      />
+      <div>
+        <button onClick={() => handleOptionClick("EducationData")}>
+          EducationData
+        </button>
+        <button onClick={() => handleOptionClick("MacroeconomicData")}>
+          Macroeconomic Data
+        </button>
+      </div>
+
+      {optionSelected === "EducationData" && (
+        <>
+          <CountryInformation iso={country.iso} />
+          <EducationData iso={country.iso} optionSelected={optionSelected} />
+        </>
+      )}
+
+      {optionSelected === "MacroeconomicData" && (
+        <>
+          <CountryInformation iso={country.iso} />
+          <MacroeconomicData
+            iso={country.iso}
+            optionSelected={optionSelected}
+          />
+        </>
+      )}
     </>
   );
 };
-/*<CountryDetail country={country}/>*/
+
 export default CountryInfo;

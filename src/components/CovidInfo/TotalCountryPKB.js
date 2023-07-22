@@ -65,13 +65,13 @@ const TotalCountryPKB = (props) => {
     plugins: {
       legend: {
         labels: {
-          color: "#000000", // Kolor tekstu legendy
+          color: "#000000",
         },
       },
     },
     elements: {
       point: {
-        backgroundColor: "#000000", // Kolor punktów na wykresie
+        backgroundColor: "#000000",
       },
     },
     maintainAspectRatio: false,

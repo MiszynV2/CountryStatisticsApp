@@ -13,7 +13,6 @@
     font-weight: 450;
     cursor: pointer;
     white-space: nowrap;
-    text-overflow: ellipsis;
     overflow: hidden;
     font-family: "Roboto Light", sans-serif;
     display: flex;
@@ -23,7 +22,7 @@
 .country {
   background-color: var(--main-bg-color);
   list-style: none;
-  padding: 10px 0;
+  padding: 6px 0;
   text-align: left;
   font-size: 1em;
   color: var(--main-text-color);
@@ -66,8 +65,12 @@
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .searchedText {
   margin-top: 10px;
   margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

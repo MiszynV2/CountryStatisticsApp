@@ -62,36 +62,40 @@ const TotalCountryUrbanization = (props) => {
     );
   }
 
-
   const chartOptions = {
     plugins: {
       legend: {
         labels: {
-          color: "#000000", // Kolor tekstu legendy
+          color: "#d8b9c3",
         },
       },
     },
     elements: {
       point: {
-        backgroundColor: "#000000", // Kolor punktów na wykresie
+        backgroundColor: "#d8b9c3",
       },
     },
     maintainAspectRatio: false,
     responsive: true,
     scales: {
       y: {
+        grid: {
+          color: "rgba(200, 200, 200, 0.2)", // Kolor linii siatki dla osi Y
+        },
         ticks: {
-          color: "#E8BDE",
+          color: "#E8BDE", // Kolor ticków osi Y
         },
       },
       x: {
+        grid: {
+          color: "rgba(200, 200, 200, 0.2)", // Kolor linii siatki dla osi X
+        },
         ticks: {
-          color: "#E8BDE",
+          color: "#E8BDE", // Kolor ticków osi X
         },
       },
     },
   };
-
   const state = {
     labels: dates,
     datasets: [

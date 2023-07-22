@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
-import CovidApi from "../../services/covid-api";
 import { LOADING_STATE } from "../../constants";
 import classes from "./AllCountriesInfo.module.css";
 
@@ -43,7 +42,7 @@ const AllCountriesInfo = (props) => {
         return date?.name.common;
       })
     );
-    console.log(data, " response AllCountriesInfodata", dates);
+
     setLoadingStatus(LOADING_STATE.resolved);
   }, [props.iso]);
 
@@ -67,7 +66,7 @@ const AllCountriesInfo = (props) => {
   if (!data.length) {
     return <h4>No data found</h4>;
   }
-  console.log(mappedDeaths, "mappedDeaths  ąąąą  dates ", dates);
+
 
   const state = {
     labels: dates,
