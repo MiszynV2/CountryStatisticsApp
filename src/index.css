@@ -38,6 +38,7 @@ code {
 }
 
 [data-theme="dark"] {
+  --main-text-hover: #c97c95;
   --main-text-color: #d8b9c3;
   --main-bg-color: #4d4c7d;
   --main-radius: 14px;
@@ -47,7 +48,6 @@ code {
   --btn-color: #4d4c7d;
   --btn-bg-color: #e8a8bc;
   --text-input-color: #f7f7f7;
-  --main-text-hover: #d8b9c3;
   --search-input-bg: #4d4c7d;
   --countryDetail-bg-color: #4d4c7d;
   --covidInfoListItem-bg-color: #e6eeef;

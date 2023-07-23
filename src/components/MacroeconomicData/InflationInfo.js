@@ -7,7 +7,7 @@ import { Bar } from "react-chartjs-2";
 const InflationInfo = (props) => {
   const [dataPopulation, setDataPopulation] = useState([]);
   const [dates, setDates] = useState([]);
-  console.log("infacja", dataPopulation); // Poprawiono, aby wyświetlić daty, nie dataPopulation
+
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
 
   const InflationAPI = useCallback(async () => {

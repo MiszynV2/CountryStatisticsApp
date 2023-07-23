@@ -7,7 +7,7 @@ import { Bar } from "react-chartjs-2";
 const GDPInfo = (props) => {
   const [dataPKB, setDataPKB] = useState([]);
   const [dates, setDates] = useState();
-
+  console.log(dates, "gdpinfo");
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
   const GDPInfo = useCallback(async () => {
     setLoadingStatus(LOADING_STATE.pending);
@@ -19,22 +19,23 @@ const GDPInfo = (props) => {
     }
 
     setDataPKB(response.data[1].reverse());
-    setDates(
-      dataPKB.map((date) => {
-        return date?.date;
-      })
-    );
 
     setLoadingStatus(LOADING_STATE.resolved);
-  }, [props.iso]);
-
-  const mappedPKB = (dataPKB || []).map((date) => {
-    return date?.value;
-  });
+  }, [props]);
 
   useEffect(() => {
     GDPInfo();
   }, [GDPInfo, props]);
+
+  useEffect(() => {
+    if (dataPKB.length > 0) {
+      setDates(
+        dataPKB.map((date) => {
+          return date?.date;
+        })
+      );
+    }
+  }, [dataPKB]);
 
   if (loadingStatus === LOADING_STATE.idle || loadingStatus.pending) {
     return <div className={classes.main}>LOADING...</div>;
@@ -101,7 +102,6 @@ const GDPInfo = (props) => {
         lineTension: 0.5,
         backgroundColor: "rgba(77, 93, 240,0.9)",
         borderColor: "rgba(0,0,0,0.9)",
-        data: mappedPKB,
         drawBorder: false,
         drawTicks: false,
         display: false,

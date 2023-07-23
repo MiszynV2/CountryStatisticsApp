@@ -43,7 +43,7 @@ function App() {
             )}
           </button>
         </header>
-        {size.width > 700 ? (
+        {size.width > 800 ? (
           <NavigationBar onClick={setCountry} />
         ) : (
           <SearchFormMobile onInputSelected={setCountry} />

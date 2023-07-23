@@ -1,8 +1,9 @@
 .main {
   background-color: var(--main-bg-color);
-  grid-area: public-debt;
+  grid-area: gdp;
   border-radius: var(--main-radius);
   padding: 30px;
+  max-height: 330px;
 }
 
 .title {
@@ -30,7 +31,7 @@
 @media (min-width: 1081px) {
   .main {
     background-color: var(--main-bg-color);
-    grid-area: public;
+    grid-area: gdp;
     border-radius: var(--main-radius);
     padding: 30px 30px 100px 30px;
   }

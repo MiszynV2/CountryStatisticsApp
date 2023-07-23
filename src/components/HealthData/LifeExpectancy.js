@@ -1,46 +1,43 @@
-import classes from "./NumberOfStudents.module.css";
+import classes from "./LifeExpectancy.module.css";
 import CovidApi from "../../services/covid-api";
 import { useCallback, useEffect, useState } from "react";
 import { LOADING_STATE } from "../../constants";
 import { Bar } from "react-chartjs-2";
 
-const NumberOfStudents = (props) => {
-  const [dataNumberOfStudents, setDataNumberOfStudents] = useState([]);
-  const [dates, setDates] = useState([]);
+const LifeExpectancy = (props) => {
+  const [dataPKB, setDataPKB] = useState([]);
+  const [dates, setDates] = useState();
+  console.log(dates, "gdpinfo");
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
-
-  const fetchNumberOfStudentsData = useCallback(async () => {
+  const LifeExpectancyAPI = useCallback(async () => {
     setLoadingStatus(LOADING_STATE.pending);
 
-    const response = await CovidApi.NumberOfStudents(props.iso);
+    const response = await CovidApi.GDP(props.iso);
 
     if (!response.isOK) {
       setLoadingStatus(LOADING_STATE.rejected);
     }
-    setDataNumberOfStudents(response.data[1].reverse());
+
+    setDataPKB(response.data[1].reverse());
 
     setLoadingStatus(LOADING_STATE.resolved);
-  }, [props.iso]);
+  }, [props]);
 
   useEffect(() => {
-    fetchNumberOfStudentsData();
-  }, [fetchNumberOfStudentsData, props]);
+    LifeExpectancyAPI();
+  }, [LifeExpectancyAPI, props]);
 
   useEffect(() => {
-    // Aktualizacja zmiennych dates po zmianie dataNumberOfStudents
-    if (dataNumberOfStudents.length > 0) {
+    if (dataPKB.length > 0) {
       setDates(
-        dataNumberOfStudents.map((date) => {
+        dataPKB.map((date) => {
           return date?.date;
         })
       );
     }
-  }, [dataNumberOfStudents]);
+  }, [dataPKB]);
 
-  if (
-    loadingStatus === LOADING_STATE.idle ||
-    loadingStatus === LOADING_STATE.pending
-  ) {
+  if (loadingStatus === LOADING_STATE.idle || loadingStatus.pending) {
     return <div className={classes.main}>LOADING...</div>;
   }
 
@@ -48,7 +45,7 @@ const NumberOfStudents = (props) => {
     return <div className={classes.main}>Error</div>;
   }
 
-  if (!dataNumberOfStudents) {
+  if (!dataPKB) {
     return (
       <div className={classes.main}>
         <span className={classes.error}>
@@ -57,8 +54,7 @@ const NumberOfStudents = (props) => {
       </div>
     );
   }
-
-  if (dataNumberOfStudents.length === 0) {
+  if (dataPKB.length === 0) {
     return (
       <div className={classes.main}>
         <h4>No data</h4>
@@ -70,13 +66,13 @@ const NumberOfStudents = (props) => {
     plugins: {
       legend: {
         labels: {
-          color: "#000000", // Kolor tekstu legendy
+          color: "#000000",
         },
       },
     },
     elements: {
       point: {
-        backgroundColor: "#000000", // Kolor punktów na wykresie
+        backgroundColor: "#000000",
       },
     },
     maintainAspectRatio: false,
@@ -99,26 +95,28 @@ const NumberOfStudents = (props) => {
     labels: dates,
     datasets: [
       {
-        label: "School enrollment, secondary (% gross)",
+        label: "Country PKB",
         fill: true,
         tooltip: false,
         borderWidth: 0,
         lineTension: 0.5,
         backgroundColor: "rgba(77, 93, 240,0.9)",
         borderColor: "rgba(0,0,0,0.9)",
-        data: dataNumberOfStudents.map((date) => date?.value),
+        drawBorder: false,
+        drawTicks: false,
+        display: false,
+        data: dataPKB.map((date) => date?.value),
       },
     ],
   };
 
   return (
     <div className={classes.main}>
-      <h1 className={classes.title}>School enrollment, secondary (% gross)</h1>
+      <h1 className={classes.title}>Life Expectancy</h1>
       <div className={classes.chartDiv}>
         <Bar data={state} options={chartOptions} height={85} width={233} />
       </div>
     </div>
   );
 };
-
-export default NumberOfStudents;
+export default LifeExpectancy;

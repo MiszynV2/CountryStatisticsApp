@@ -58,7 +58,10 @@ const IlliteracyRate = (props) => {
     );
   }
 
-  if (dataPopulation.length === 0) {
+  // Filtrujemy dane, aby wykluczyć wartości null
+  const filteredData = dataPopulation.filter((date) => date?.value !== null);
+
+  if (filteredData.length === 0) {
     return (
       <div className={classes.main}>
         <h4>No data</h4>
@@ -94,8 +97,9 @@ const IlliteracyRate = (props) => {
       },
     },
   };
+
   const state = {
-    labels: dates,
+    labels: filteredData.map((date) => date?.date),
     datasets: [
       {
         label: "Population",
@@ -109,7 +113,7 @@ const IlliteracyRate = (props) => {
         scales: { xAxes: [{ display: false }], yAxes: [{ display: false }] },
         backgroundColor: "rgba(75,192,192,1)",
         borderColor: "rgba(0,0,0,0.3)",
-        data: dataPopulation.map((date) => date?.value),
+        data: filteredData.map((date) => date?.value),
       },
     ],
     legend: {
@@ -120,7 +124,7 @@ const IlliteracyRate = (props) => {
 
   return (
     <div className={classes.main}>
-      <h1 className={classes.title}>IlliteracyRate</h1>
+      <h1 className={classes.title}>Illiteracy Rate (%)</h1>
       <div className={classes.chartDiv}>
         <Bar data={state} options={chartOptions} height={85} width={233} />
       </div>

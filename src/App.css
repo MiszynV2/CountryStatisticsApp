@@ -54,15 +54,12 @@ header {
 
 @media (max-width: 700px) {
   .main {
-    grid-template-rows: 60px 30px 70px 30px 60px 1454px 200px;
+    grid-template-rows: 60px 59px 1610px 187px;
     grid-template-columns: 100%;
     grid-template-areas:
       "header"
-      "."
-      "countries"
-      "."
+      "buttons"
       "generalInfo"
-      "."
       "footer";
   }
   header {
@@ -97,7 +94,7 @@ header {
     display: flex;
   }
   .main {
-    grid-template-rows: 64px 30px 660px 20px;
+    grid-template-rows: 64px 30px 650px 20px;
     grid-template-columns: 300px 28px 50vw;
     grid-template-areas:
       "header header header"

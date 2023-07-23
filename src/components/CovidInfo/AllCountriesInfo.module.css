@@ -21,15 +21,17 @@
 .main {
   background-color: var(--main-bg-color);
   border-radius: var(--main-radius);
-  grid-area: totalInfo/ totalInfo / continent / continent;
+  grid-area: countryCovid;
   height: 550px;
+  padding: 30px;
 }
 
 @media (max-width: 1080px) {
   .main {
     background-color: var(--main-bg-color);
     border-radius: var(--main-radius);
-    grid-area: countryCovid / countryCovid / continent / continent;
+    grid-area: countryCovid;
+    padding: 30px;
   }
 }
 

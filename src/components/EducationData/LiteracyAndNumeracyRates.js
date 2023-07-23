@@ -24,7 +24,7 @@ const LiteracyAndNumeracyRates = (props) => {
 
   useEffect(() => {
     fetchData();
-  }, [fetchData]);
+  }, [fetchData, props]);
 
   useEffect(() => {
     if (dataPKB.length > 0) {
@@ -98,7 +98,7 @@ const LiteracyAndNumeracyRates = (props) => {
     labels: dates,
     datasets: [
       {
-        label: "Country PKB",
+        label: "Literacy and numeracy rates",
         fill: true,
         tooltip: false,
         borderWidth: 0,
@@ -116,7 +116,7 @@ const LiteracyAndNumeracyRates = (props) => {
 
   return (
     <div className={classes.main}>
-      <h1 className={classes.title}>Foreign trade</h1>
+      <h1 className={classes.title}>LiteracyAndNumeracyRates</h1>
       <div className={classes.chartDiv}>
         <Bar data={state} options={chartOptions} height={85} width={233} />
       </div>

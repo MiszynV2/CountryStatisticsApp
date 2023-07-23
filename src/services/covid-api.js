@@ -243,6 +243,54 @@ const IlliteracyRate = async (iso) => {
   };
 };
 
+const ChildMortalityRates = async (iso) => {
+  const response = await fetch(
+    `https://api.worldbank.org/v2/country/${iso}/indicator/SP.DYN.LE00.IN?format=json`
+  );
+
+  if (!response.ok) {
+    return {
+      isOK: false,
+    };
+  }
+  return {
+    isOk: true,
+    data: await response.json(),
+  };
+};
+
+const HealthExpenditures = async (iso) => {
+  const response = await fetch(
+    `https://api.worldbank.org/v2/country/${iso}/indicator/SH.DYN.MORT?format=json`
+  );
+
+  if (!response.ok) {
+    return {
+      isOK: false,
+    };
+  }
+  return {
+    isOk: true,
+    data: await response.json(),
+  };
+};
+
+const LifeExpectancy = async (iso) => {
+  const response = await fetch(
+    `https://api.worldbank.org/v2/country/${iso}/indicator/SH.XPD.CHEX.GD.ZS?format=json`
+  );
+
+  if (!response.ok) {
+    return {
+      isOK: false,
+    };
+  }
+  return {
+    isOk: true,
+    data: await response.json(),
+  };
+};
+
 const API = {
   totalPopulationOfWorldByCountryAPI,
   CountryInfos,
@@ -259,6 +307,9 @@ const API = {
   LiteracyAndNumeracyRates,
   EducationExpenditures,
   IlliteracyRate,
+  ChildMortalityRates,
+  HealthExpenditures,
+  LifeExpectancy,
 };
 
 export default API;

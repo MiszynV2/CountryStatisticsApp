@@ -10,15 +10,16 @@ const MacroeconomicData = (country) => {
   console.log(country, "macroeie data");
   return (
     <>
-      <ForeignTrade iso={country.iso} optionSelected={country.optionSelected} />
       <GDPInfo iso={country.iso} optionSelected={country.optionSelected} />
       <Inflation iso={country.iso} optionSelected={country.optionSelected} />
+      <Unemployment iso={country.iso} optionSelected={country.optionSelected} />
+      {/** 
+      <ForeignTrade iso={country.iso} optionSelected={country.optionSelected} />
       <PublicDebt iso={country.iso} optionSelected={country.optionSelected} />
       <SocialDevelopmentIndicators
         iso={country.iso}
         optionSelected={country.optionSelected}
-      />
-      <Unemployment iso={country.iso} optionSelected={country.optionSelected} />
+      />*/}
     </>
   );
 };

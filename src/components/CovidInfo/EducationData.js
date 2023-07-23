@@ -14,7 +14,7 @@ const EducationData = (country) => {
         optionSelected={country.optionSelected}
         iso={country.iso}
       />
-      <LiteracyAndNumeracyRates
+      <IlliteracyRate
         optionSelected={country.optionSelected}
         iso={country.iso}
       />

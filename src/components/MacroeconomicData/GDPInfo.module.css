@@ -3,6 +3,7 @@
   grid-area: gdp;
   border-radius: var(--main-radius);
   padding: 30px;
+  max-height: 320px;
 }
 
 .chartDiv {

@@ -1,46 +1,44 @@
-import classes from "./NumberOfStudents.module.css";
+import classes from "./ChildMortalityRates.module.css";
 import CovidApi from "../../services/covid-api";
 import { useCallback, useEffect, useState } from "react";
 import { LOADING_STATE } from "../../constants";
 import { Bar } from "react-chartjs-2";
 
-const NumberOfStudents = (props) => {
-  const [dataNumberOfStudents, setDataNumberOfStudents] = useState([]);
+const ChildMortalityRates = (props) => {
+  const [dataPopulation, setDataPopulation] = useState([]);
   const [dates, setDates] = useState([]);
+
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
 
-  const fetchNumberOfStudentsData = useCallback(async () => {
+  const ChildMortalityRatesAPI = useCallback(async () => {
     setLoadingStatus(LOADING_STATE.pending);
 
-    const response = await CovidApi.NumberOfStudents(props.iso);
+    const response = await CovidApi.ChildMortalityRates(props.iso);
 
     if (!response.isOK) {
       setLoadingStatus(LOADING_STATE.rejected);
     }
-    setDataNumberOfStudents(response.data[1].reverse());
+
+    setDataPopulation(response.data[1].reverse());
 
     setLoadingStatus(LOADING_STATE.resolved);
-  }, [props.iso]);
+  }, [props]);
 
   useEffect(() => {
-    fetchNumberOfStudentsData();
-  }, [fetchNumberOfStudentsData, props]);
+    ChildMortalityRatesAPI();
+  }, [ChildMortalityRatesAPI, props]);
 
   useEffect(() => {
-    // Aktualizacja zmiennych dates po zmianie dataNumberOfStudents
-    if (dataNumberOfStudents.length > 0) {
+    if (dataPopulation.length > 0) {
       setDates(
-        dataNumberOfStudents.map((date) => {
+        dataPopulation.map((date) => {
           return date?.date;
         })
       );
     }
-  }, [dataNumberOfStudents]);
+  }, [dataPopulation]);
 
-  if (
-    loadingStatus === LOADING_STATE.idle ||
-    loadingStatus === LOADING_STATE.pending
-  ) {
+  if (loadingStatus === LOADING_STATE.idle || loadingStatus.pending) {
     return <div className={classes.main}>LOADING...</div>;
   }
 
@@ -48,17 +46,17 @@ const NumberOfStudents = (props) => {
     return <div className={classes.main}>Error</div>;
   }
 
-  if (!dataNumberOfStudents) {
+  if (!dataPopulation) {
     return (
       <div className={classes.main}>
         <span className={classes.error}>
           Something went wrong! Try search again (:
-        </span>{" "}
+        </span>
       </div>
     );
   }
 
-  if (dataNumberOfStudents.length === 0) {
+  if (dataPopulation.length === 0) {
     return (
       <div className={classes.main}>
         <h4>No data</h4>
@@ -70,13 +68,13 @@ const NumberOfStudents = (props) => {
     plugins: {
       legend: {
         labels: {
-          color: "#000000", // Kolor tekstu legendy
+          color: "#d8b9c3",
         },
       },
     },
     elements: {
       point: {
-        backgroundColor: "#000000", // Kolor punktów na wykresie
+        backgroundColor: "#d8b9c3",
       },
     },
     maintainAspectRatio: false,
@@ -84,12 +82,12 @@ const NumberOfStudents = (props) => {
     scales: {
       y: {
         ticks: {
-          color: "#E8BDE",
+          color: "#E8BDE", // Kolor ticków osi Y
         },
       },
       x: {
         ticks: {
-          color: "#E8BDE",
+          color: "#E8BDE", // Kolor ticków osi X
         },
       },
     },
@@ -99,21 +97,29 @@ const NumberOfStudents = (props) => {
     labels: dates,
     datasets: [
       {
-        label: "School enrollment, secondary (% gross)",
+        label: "percents",
         fill: true,
         tooltip: false,
         borderWidth: 0,
         lineTension: 0.5,
-        backgroundColor: "rgba(77, 93, 240,0.9)",
-        borderColor: "rgba(0,0,0,0.9)",
-        data: dataNumberOfStudents.map((date) => date?.value),
+        drawBorder: false,
+        drawTicks: false,
+        display: false,
+        scales: { xAxes: [{ display: false }], yAxes: [{ display: false }] },
+        backgroundColor: "rgba(75,192,192,1)",
+        borderColor: "rgba(0,0,0,0.3)",
+        data: dataPopulation.map((date) => date?.value),
       },
     ],
+    legend: {
+      display: false,
+    },
+    scales: { xAxes: [{ display: false }], yAxes: [{ display: false }] },
   };
 
   return (
     <div className={classes.main}>
-      <h1 className={classes.title}>School enrollment, secondary (% gross)</h1>
+      <h1 className={classes.title}>Child mortality rates (%)</h1>
       <div className={classes.chartDiv}>
         <Bar data={state} options={chartOptions} height={85} width={233} />
       </div>
@@ -121,4 +127,4 @@ const NumberOfStudents = (props) => {
   );
 };
 
-export default NumberOfStudents;
+export default ChildMortalityRates;

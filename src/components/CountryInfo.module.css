@@ -1,1 +1,46 @@
+.button {
+  border-radius: var(--main-radius);
+  background-color: var(--btn-bg-color);
+  color: var(--btn-color);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  height: 40px;
+  width: 29%;
+  font-size: 0.7em;
+  font-weight: 650;
+}
 
+.button:hover {
+  background-color: var(--btn-hover);
+}
+
+.button:active {
+  background-color: var(--btn-active);
+}
+
+.buttonWrapper {
+  display: flex;
+  grid-area: buttons;
+  justify-content: space-around;
+  background-color: var(--main-bg-color);
+  border-radius: var(--main-radius);
+  align-items: center;
+}
+
+.activeButton {
+  background-color: var(--btn-hover);
+}
+
+/* Dodatkowy styl dla przycisków po najechaniu */
+.button:hover:not(.activeButton) {
+  background-color: var(--btn-hover);
+}
+
+/* Dodatkowy styl dla przycisków po kliknięciu */
+.button:active:not(.activeButton) {
+  background-color: var(--btn-active);
+}

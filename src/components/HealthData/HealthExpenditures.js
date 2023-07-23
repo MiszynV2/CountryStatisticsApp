@@ -1,41 +1,43 @@
-import classes from "./NumberOfStudents.module.css";
-import CovidApi from "../../services/covid-api";
-import { useCallback, useEffect, useState } from "react";
+import classes from "./HealthExpenditures.module.css";
 import { LOADING_STATE } from "../../constants";
+import CovidApi from "../../services/covid-api";
 import { Bar } from "react-chartjs-2";
+import { useCallback, useEffect, useState } from "react";
 
-const NumberOfStudents = (props) => {
-  const [dataNumberOfStudents, setDataNumberOfStudents] = useState([]);
+const HealthExpenditures = (props) => {
+  const [dataUrbanization, setDataUrbanization] = useState([]);
   const [dates, setDates] = useState([]);
+  console.log("bezrobot.iso:", dataUrbanization);
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
 
-  const fetchNumberOfStudentsData = useCallback(async () => {
+  const HealthExpendituresAPI = useCallback(async () => {
     setLoadingStatus(LOADING_STATE.pending);
 
-    const response = await CovidApi.NumberOfStudents(props.iso);
-
+    const response = await CovidApi.HealthExpenditures(props.iso);
+    console.log(response, "response");
     if (!response.isOK) {
       setLoadingStatus(LOADING_STATE.rejected);
+      console.log(dataUrbanization, "rrrrrrrrrrrr");
     }
-    setDataNumberOfStudents(response.data[1].reverse());
+    setDataUrbanization(response.data[1].reverse());
+    console.log(dataUrbanization, "ddddddddddd");
 
     setLoadingStatus(LOADING_STATE.resolved);
   }, [props.iso]);
 
   useEffect(() => {
-    fetchNumberOfStudentsData();
-  }, [fetchNumberOfStudentsData, props]);
+    HealthExpendituresAPI();
+  }, [HealthExpendituresAPI, props]);
 
   useEffect(() => {
-    // Aktualizacja zmiennych dates po zmianie dataNumberOfStudents
-    if (dataNumberOfStudents.length > 0) {
+    if (dataUrbanization.length > 0) {
       setDates(
-        dataNumberOfStudents.map((date) => {
+        dataUrbanization.map((date) => {
           return date?.date;
         })
       );
     }
-  }, [dataNumberOfStudents]);
+  }, [dataUrbanization]);
 
   if (
     loadingStatus === LOADING_STATE.idle ||
@@ -48,17 +50,17 @@ const NumberOfStudents = (props) => {
     return <div className={classes.main}>Error</div>;
   }
 
-  if (!dataNumberOfStudents) {
+  if (!dataUrbanization) {
     return (
       <div className={classes.main}>
         <span className={classes.error}>
           Something went wrong! Try search again (:
-        </span>{" "}
+        </span>
       </div>
     );
   }
 
-  if (dataNumberOfStudents.length === 0) {
+  if (dataUrbanization.length === 0) {
     return (
       <div className={classes.main}>
         <h4>No data</h4>
@@ -70,50 +72,58 @@ const NumberOfStudents = (props) => {
     plugins: {
       legend: {
         labels: {
-          color: "#000000", // Kolor tekstu legendy
+          color: "#d8b9c3",
         },
       },
     },
     elements: {
       point: {
-        backgroundColor: "#000000", // Kolor punktów na wykresie
+        backgroundColor: "#d8b9c3",
       },
     },
     maintainAspectRatio: false,
     responsive: true,
     scales: {
       y: {
+        grid: {
+          color: "rgba(200, 200, 200, 0.2)", // Kolor linii siatki dla osi Y
+        },
         ticks: {
-          color: "#E8BDE",
+          color: "#E8BDE", // Kolor ticków osi Y
         },
       },
       x: {
+        grid: {
+          color: "rgba(200, 200, 200, 0.2)", // Kolor linii siatki dla osi X
+        },
         ticks: {
-          color: "#E8BDE",
+          color: "#E8BDE", // Kolor ticków osi X
         },
       },
     },
   };
-
   const state = {
     labels: dates,
     datasets: [
       {
-        label: "School enrollment, secondary (% gross)",
+        label: "Health ",
         fill: true,
         tooltip: false,
         borderWidth: 0,
         lineTension: 0.5,
-        backgroundColor: "rgba(77, 93, 240,0.9)",
+        drawBorder: false,
+        drawTicks: false,
+        display: false,
+        backgroundColor: "rgb(212,160,243)",
         borderColor: "rgba(0,0,0,0.9)",
-        data: dataNumberOfStudents.map((date) => date?.value),
+        data: dataUrbanization.map((date) => date?.value),
       },
     ],
   };
 
   return (
     <div className={classes.main}>
-      <h1 className={classes.title}>School enrollment, secondary (% gross)</h1>
+      <h1 className={classes.title}>Health Expenditures ($)</h1>
       <div className={classes.chartDiv}>
         <Bar data={state} options={chartOptions} height={85} width={233} />
       </div>
@@ -121,4 +131,4 @@ const NumberOfStudents = (props) => {
   );
 };
 
-export default NumberOfStudents;
+export default HealthExpenditures;

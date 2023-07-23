@@ -8,7 +8,7 @@ const ForeignTrade = (props) => {
   const [dataPKB, setDataPKB] = useState([]);
   const [dates, setDates] = useState([]);
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
-
+  console.log(dataPKB, "dataPKB ForeignTrade");
   const fetchData = useCallback(async () => {
     setLoadingStatus(LOADING_STATE.pending);
 

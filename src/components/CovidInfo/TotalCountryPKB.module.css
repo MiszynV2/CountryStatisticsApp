@@ -1,6 +1,6 @@
 .main{
     background-color: var(--main-bg-color);
-    grid-area: vacination;
+    grid-area: gdp;
     border-radius: var(--main-radius);
     padding: 30px;
 }
