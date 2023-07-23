@@ -21,8 +21,8 @@
 .main {
   background-color: var(--main-bg-color);
   border-radius: var(--main-radius);
-  grid-area: countryCovid;
-  height: 550px;
+  grid-area: buttons;
+  height: 770px;
   padding: 30px;
 }
 
@@ -30,7 +30,7 @@
   .main {
     background-color: var(--main-bg-color);
     border-radius: var(--main-radius);
-    grid-area: countryCovid;
+    grid-area: buttons;
     padding: 30px;
   }
 }

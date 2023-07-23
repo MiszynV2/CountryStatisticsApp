@@ -7,7 +7,6 @@ import SocialDevelopmentIndicators from "../MacroeconomicData/SocialDevelopmentI
 import Unemployment from "../MacroeconomicData/Unemployment";
 
 const MacroeconomicData = (country) => {
-  console.log(country, "macroeie data");
   return (
     <>
       <GDPInfo iso={country.iso} optionSelected={country.optionSelected} />

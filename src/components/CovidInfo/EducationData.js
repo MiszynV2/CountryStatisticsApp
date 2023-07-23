@@ -6,8 +6,6 @@ import LiteracyAndNumeracyRates from "../EducationData/LiteracyAndNumeracyRates"
 import NumberOfStudents from "../EducationData/NumberOfStudents";
 
 const EducationData = (country) => {
-  console.log("EducationData", country);
-
   return (
     <>
       <EducationExpenditures

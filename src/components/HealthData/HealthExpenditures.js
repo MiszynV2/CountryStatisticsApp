@@ -7,20 +7,16 @@ import { useCallback, useEffect, useState } from "react";
 const HealthExpenditures = (props) => {
   const [dataUrbanization, setDataUrbanization] = useState([]);
   const [dates, setDates] = useState([]);
-  console.log("bezrobot.iso:", dataUrbanization);
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
 
   const HealthExpendituresAPI = useCallback(async () => {
     setLoadingStatus(LOADING_STATE.pending);
 
     const response = await CovidApi.HealthExpenditures(props.iso);
-    console.log(response, "response");
     if (!response.isOK) {
       setLoadingStatus(LOADING_STATE.rejected);
-      console.log(dataUrbanization, "rrrrrrrrrrrr");
     }
     setDataUrbanization(response.data[1].reverse());
-    console.log(dataUrbanization, "ddddddddddd");
 
     setLoadingStatus(LOADING_STATE.resolved);
   }, [props.iso]);

@@ -7,7 +7,6 @@ import { Bar } from "react-chartjs-2";
 const IlliteracyRate = (props) => {
   const [dataPopulation, setDataPopulation] = useState([]);
   const [dates, setDates] = useState([]);
-  console.log("dataPopulation dates", dataPopulation);
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
 
   const IlliteracyRateAPI = useCallback(async () => {

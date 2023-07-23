@@ -7,7 +7,6 @@ import { Bar } from "react-chartjs-2";
 const GDPInfo = (props) => {
   const [dataPKB, setDataPKB] = useState([]);
   const [dates, setDates] = useState();
-  console.log(dates, "gdpinfo");
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
   const GDPInfo = useCallback(async () => {
     setLoadingStatus(LOADING_STATE.pending);

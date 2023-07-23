@@ -20,9 +20,9 @@ const generateRandomColors = (numColors) => {
 };
 
 const AllCountriesInfo = (props) => {
-  // TODO: Create a custom hook
   const [data, setData] = useState([]);
   const [dates, setDates] = useState();
+  const [selectedCountry, setSelectedCountry] = useState(null);
 
   const [loadingStatus, setLoadingStatus] = useState(LOADING_STATE.idle);
 
@@ -38,35 +38,33 @@ const AllCountriesInfo = (props) => {
     setData(response_data);
 
     setDates(
-      data.map((date) => {
-        return date?.name.common;
+      response_data.map((country) => {
+        return country?.name.common;
       })
     );
 
     setLoadingStatus(LOADING_STATE.resolved);
   }, [props.iso]);
 
-  const mappedDeaths = (data || []).map((date) => {
-    return date.population;
+  const mappedDeaths = (data || []).map((country) => {
+    return country.population;
   });
 
   useEffect(() => {
     totalPopulationOfWorldByCountryAPI();
   }, [totalPopulationOfWorldByCountryAPI]);
-  // TODO: end Create a custom hook
 
-  if (loadingStatus === LOADING_STATE.idle || loadingStatus.pending) {
-    return <div>LOADING...</div>;
-  }
+  const handleCountryClick = (event) => {
+    const activeElements = event?.[0]?.chart?.getElementAtEvent(event);
+    if (activeElements && activeElements.length > 0) {
+      const selectedIndex = activeElements[0].index;
+      setSelectedCountry(data[selectedIndex]);
+    }
+  };
 
-  if (loadingStatus === LOADING_STATE.rejected) {
-    return <div>Error</div>;
-  }
-
-  if (!data.length) {
-    return <h4>No data found</h4>;
-  }
-
+  const resetSelectedCountry = () => {
+    setSelectedCountry(null);
+  };
 
   const state = {
     labels: dates,
@@ -119,14 +117,28 @@ const AllCountriesInfo = (props) => {
         },
       },
     },
+    onClick: handleCountryClick,
   };
 
   return (
     <div className={classes.main}>
       <h1 className={classes.title}>Global Statistic</h1>
       <h2 className={classes.subtitle}>{new Date().toLocaleString()}</h2>
+      {selectedCountry ? (
+        <div className={classes.selectedCountryInfo}>
+          <h3>{selectedCountry.name.common}</h3>
+          <p>Population: {selectedCountry.population}</p>
+          {selectedCountry.name}
+          <button onClick={resetSelectedCountry}>Back</button>
+        </div>
+      ) : (
+        <div className={classes.chooseCountryInfo}>
+          <p>Countries by population</p>
+        </div>
+      )}
       <Doughnut data={state} options={chartOptions} />
     </div>
   );
 };
+
 export default AllCountriesInfo;
