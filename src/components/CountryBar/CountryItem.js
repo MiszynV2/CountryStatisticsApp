@@ -1,7 +1,10 @@
+import React from "react";
 import classes from "./CountryItem.module.css";
+
 const CountryItem = ({ onCountryClick, country, searchPhrase }) => {
   const countryNameSplit = country.name.split("");
   countryNameSplit[0] = countryNameSplit[0].toUpperCase();
+
   return (
     <li
       onClick={() => {
@@ -39,4 +42,5 @@ const CountryItem = ({ onCountryClick, country, searchPhrase }) => {
     </li>
   );
 };
+
 export default CountryItem;

@@ -63,6 +63,7 @@ const Unemployment = (props) => {
       </div>
     );
   }
+  const filteredData = dataUrbanization.filter((date) => date?.value !== null);
 
   const chartOptions = {
     plugins: {
@@ -99,7 +100,7 @@ const Unemployment = (props) => {
     },
   };
   const state = {
-    labels: dates,
+    labels: filteredData.map((date) => date?.date),
     datasets: [
       {
         label: "Urbanization",
@@ -112,7 +113,7 @@ const Unemployment = (props) => {
         display: false,
         backgroundColor: "rgb(212,160,243)",
         borderColor: "rgba(0,0,0,0.9)",
-        data: dataUrbanization.map((date) => date?.value),
+        data: filteredData.map((date) => date?.value),
       },
     ],
   };

@@ -36,6 +36,8 @@ const TotalCountryPKB = (props) => {
     TotalPKBCovidAPI();
   }, [TotalPKBCovidAPI]);
 
+  const filteredData = mappedPKB.filter((date) => date?.value !== null);
+
   if (loadingStatus === LOADING_STATE.idle || loadingStatus.pending) {
     return <div className={classes.main}>LOADING...</div>;
   }
@@ -89,7 +91,7 @@ const TotalCountryPKB = (props) => {
       },
     },
   };
-
+  console.log(filteredData)
   const state = {
     labels: dates,
     datasets: [
@@ -101,7 +103,7 @@ const TotalCountryPKB = (props) => {
         lineTension: 0.5,
         backgroundColor: "rgba(77, 93, 240,0.9)",
         borderColor: "rgba(0,0,0,0.9)",
-        data: mappedPKB,
+        data: filteredData.map((date) => date?.value),
         drawBorder: false,
         drawTicks: false,
         display: false,

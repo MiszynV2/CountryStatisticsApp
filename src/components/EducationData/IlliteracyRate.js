@@ -57,7 +57,7 @@ const IlliteracyRate = (props) => {
     );
   }
 
-  // Filtrujemy dane, aby wykluczyć wartości null
+
   const filteredData = dataPopulation.filter((date) => date?.value !== null);
 
   if (filteredData.length === 0) {

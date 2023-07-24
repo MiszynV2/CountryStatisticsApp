@@ -93,8 +93,10 @@ const EducationExpenditures = (props) => {
       },
     },
   };
+  const filteredData = dataPopulation.filter((date) => date?.value !== null);
+
   const state = {
-    labels: dates,
+    labels: filteredData.map((date) => date?.date),
     datasets: [
       {
         label: "Population",
@@ -108,7 +110,7 @@ const EducationExpenditures = (props) => {
         scales: { xAxes: [{ display: false }], yAxes: [{ display: false }] },
         backgroundColor: "rgba(75,192,192,1)",
         borderColor: "rgba(0,0,0,0.3)",
-        data: dataPopulation.map((date) => date?.value),
+        data: filteredData.map((date) => date?.value),
       },
     ],
     legend: {

@@ -3,22 +3,6 @@
   src: url("https://fonts.googleapis.com/css?family=Roboto") format("woff2");
 }
 
-@media (max-width: 1080px) {
-  .country {
-    margin: 0;
-    background-color: var(--main-bg-color);
-    list-style: none;
-    font-size: 1em;
-    color: var(--main-text-color);
-    font-weight: 450;
-    cursor: pointer;
-    white-space: nowrap;
-    overflow: hidden;
-    font-family: "Roboto Light", sans-serif;
-    display: flex;
-  }
-}
-
 .country {
   background-color: var(--main-bg-color);
   list-style: none;
@@ -39,12 +23,14 @@
   background-color: var(--main-text-hover);
   font-weight: 500;
 }
+
 .country:active,
 .country:focus {
   background-color: var(--main-text-hover);
   color: darkgrey;
   font-weight: 500;
 }
+
 .flag {
   width: 1.4rem;
   height: 1rem;
@@ -68,9 +54,17 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .searchedText {
   margin-top: 10px;
   margin-bottom: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* Media Query */
+@media (max-width: 1080px) {
+  .country {
+    font-family: "Roboto Light", sans-serif;
+  }
 }

@@ -53,6 +53,8 @@ const GDPInfo = (props) => {
       </div>
     );
   }
+  const filteredData = dataPKB.filter((date) => date?.value !== null);
+  console.log(filteredData, "filteredData");
   if (dataPKB.length === 0) {
     return (
       <div className={classes.main}>
@@ -91,7 +93,7 @@ const GDPInfo = (props) => {
   };
 
   const state = {
-    labels: dates,
+    labels: filteredData.map((date) => date?.date),
     datasets: [
       {
         label: "Country PKB",
@@ -104,7 +106,7 @@ const GDPInfo = (props) => {
         drawBorder: false,
         drawTicks: false,
         display: false,
-        data: dataPKB.map((date) => date?.value),
+        data: filteredData.map((date) => date?.value),
       },
     ],
   };
