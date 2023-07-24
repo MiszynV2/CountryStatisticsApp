@@ -5,7 +5,7 @@ I get the data from `https://restcountries.com/ and https://api.worldbank.org/
 This project is created in React with heart.
 
 To run application:
-- Node version - v16.20.1
+
+- Node version - v 16.20.0
 - npm install
 - npm run
-
