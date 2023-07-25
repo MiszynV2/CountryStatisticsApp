@@ -7,7 +7,7 @@ I get the data from `https://restcountries.com/ and https://api.worldbank.org/
 This project is created in React with heart.
 
 To run application:
-- website countrystatistics-wm.vercel.app
+- website: https://countrystatistics-wm.vercel.app
 - Node version - v 16.20.0
 - npm install
 - npm run
