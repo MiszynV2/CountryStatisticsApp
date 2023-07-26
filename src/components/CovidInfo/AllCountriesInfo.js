@@ -31,7 +31,7 @@ const AllCountriesInfo = (props) => {
 
     const response = await fetch("https://restcountries.com/v3.1/all");
     const response_data = await response.json();
-    if (!response.isOK) {
+    if (!response.ok) {
       setLoadingStatus(LOADING_STATE.rejected);
     }
 
@@ -55,7 +55,12 @@ const AllCountriesInfo = (props) => {
   }, [totalPopulationOfWorldByCountryAPI]);
 
   const handleCountryClick = (event) => {
-    const activeElements = event?.[0]?.chart?.getElementAtEvent(event);
+    const activeElements = event?.[0]?.chart?.getElementsAtEventForMode(
+      event,
+      "nearest",
+      { intersect: true },
+      false
+    );
     if (activeElements && activeElements.length > 0) {
       const selectedIndex = activeElements[0].index;
       setSelectedCountry(data[selectedIndex]);
@@ -128,11 +133,10 @@ const AllCountriesInfo = (props) => {
         <div className={classes.selectedCountryInfo}>
           <h3>{selectedCountry.name.common}</h3>
           <p>Population: {selectedCountry.population}</p>
-          {selectedCountry.name}
           <button onClick={resetSelectedCountry}>Back</button>
         </div>
       ) : (
-        <div className={classes.chooseCountryInfo}>
+        <div className={classes.chooseCountryInfo__title}>
           <p>Countries by population</p>
         </div>
       )}

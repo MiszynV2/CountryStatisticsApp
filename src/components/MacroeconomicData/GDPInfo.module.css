@@ -6,6 +6,17 @@
   max-height: 320px;
 }
 
+.loaderContainer {
+  background-color: var(--main-bg-color);
+  grid-area: gdp;
+  border-radius: var(--main-radius);
+  padding: 30px;
+  max-height: 320px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
 .chartDiv {
   height: calc(100% - 60px);
 }

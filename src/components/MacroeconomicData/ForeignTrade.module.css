@@ -5,6 +5,16 @@
   padding: 30px;
 }
 
+.loaderContainer {
+  background-color: var(--main-bg-color);
+  grid-area: foreign-trade;
+  border-radius: var(--main-radius);
+  padding: 30px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
 .chartDiv {
   height: calc(100% - 60px);
 }

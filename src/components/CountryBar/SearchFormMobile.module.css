@@ -1,6 +1,7 @@
 .input_form {
   color: #8f7f8c;
   padding: 0;
+  margin-top: 10px;
 }
 .react_autosuggest__container {
   position: relative;

@@ -6,6 +6,17 @@
   max-height: 350px;
 }
 
+.loaderContainer {
+  background-color: var(--main-bg-color);
+  grid-area: inflation;
+  border-radius: var(--main-radius);
+  padding: 30px;
+  max-height: 350px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
 .title {
   color: var(--main-text-color);
   text-align: left;

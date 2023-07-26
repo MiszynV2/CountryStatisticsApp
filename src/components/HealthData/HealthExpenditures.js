@@ -3,6 +3,7 @@ import { LOADING_STATE } from "../../constants";
 import CovidApi from "../../services/covid-api";
 import { Bar } from "react-chartjs-2";
 import { useCallback, useEffect, useState } from "react";
+import { Oval } from "react-loader-spinner";
 
 const HealthExpenditures = (props) => {
   const [dataUrbanization, setDataUrbanization] = useState([]);
@@ -39,7 +40,17 @@ const HealthExpenditures = (props) => {
     loadingStatus === LOADING_STATE.idle ||
     loadingStatus === LOADING_STATE.pending
   ) {
-    return <div className={classes.main}>LOADING...</div>;
+    return (
+      <div className={classes.countryLoader}>
+        <Oval
+          type="Oval"
+          color="#d8b9c3"
+          height={100}
+          width={100}
+          timeout={3000}
+        />
+      </div>
+    );
   }
 
   if (loadingStatus === LOADING_STATE.rejected) {

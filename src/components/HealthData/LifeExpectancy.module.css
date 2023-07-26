@@ -5,6 +5,16 @@
   padding: 30px;
   max-height: 350px;
 }
+.countryLoader {
+  background-color: var(--main-bg-color);
+  grid-area: gdp;
+  border-radius: var(--main-radius);
+  padding: 30px;
+  max-height: 350px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
 
 .chartDiv {
   height: calc(100% - 60px);

@@ -3,6 +3,7 @@ import CovidApi from "../../services/covid-api";
 import { useCallback, useEffect, useState } from "react";
 import { LOADING_STATE } from "../../constants";
 import { Bar } from "react-chartjs-2";
+import { Oval } from "react-loader-spinner";
 
 const GDPInfo = (props) => {
   const [dataPKB, setDataPKB] = useState([]);
@@ -37,7 +38,17 @@ const GDPInfo = (props) => {
   }, [dataPKB]);
 
   if (loadingStatus === LOADING_STATE.idle || loadingStatus.pending) {
-    return <div className={classes.main}>LOADING...</div>;
+    return (
+      <div className={classes.loaderContainer}>
+        <Oval
+          type="Oval"
+          color="#d8b9c3"
+          height={50}
+          width={50}
+          timeout={3000} // Opcjonalnie, timeout w milisekundach, po którym animacja przestanie się wyświetlać
+        />
+      </div>
+    );
   }
 
   if (loadingStatus === LOADING_STATE.rejected) {

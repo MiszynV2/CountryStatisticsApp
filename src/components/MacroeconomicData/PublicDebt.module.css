@@ -4,6 +4,15 @@
   border-radius: var(--main-radius);
   padding: 30px;
 }
+.loaderContainer {
+  background-color: var(--main-bg-color);
+  grid-area: public-debt;
+  border-radius: var(--main-radius);
+  padding: 30px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
 
 .title {
   color: var(--main-text-color);

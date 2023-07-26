@@ -3,6 +3,7 @@ import CovidApi from "../../services/covid-api";
 import { useCallback, useEffect, useState } from "react";
 import { LOADING_STATE } from "../../constants";
 import { Bar } from "react-chartjs-2";
+import { Oval } from "react-loader-spinner";
 
 const IlliteracyRate = (props) => {
   const [dataPopulation, setDataPopulation] = useState([]);
@@ -40,7 +41,17 @@ const IlliteracyRate = (props) => {
     loadingStatus === LOADING_STATE.idle ||
     loadingStatus === LOADING_STATE.pending
   ) {
-    return <div className={classes.main}>LOADING...</div>;
+    return (
+      <div className={classes.countryLoader}>
+        <Oval
+          type="Oval"
+          color="#d8b9c3"
+          height={100}
+          width={100}
+          timeout={3000} 
+        />
+      </div>
+    );
   }
 
   if (loadingStatus === LOADING_STATE.rejected) {
@@ -56,7 +67,6 @@ const IlliteracyRate = (props) => {
       </div>
     );
   }
-
 
   const filteredData = dataPopulation.filter((date) => date?.value !== null);
 
