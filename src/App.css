@@ -76,19 +76,30 @@ header {
   }
 }
 
-@media (min-width: 700px) and (max-width: 1212px) {
+@media (min-width: 700px) and (max-width: 800px) {
   .main {
-    grid-template-rows: 62px 20px 79% 22px 230px;
+    grid-template-rows: 60px 59px 1610px 187px;
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header"
+      "buttons"
+      "generalInfo"
+      "footer";
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1212px) {
+  .main {
+    grid-template-rows: 62px 20px 79% 35px 230px;
     grid-template-columns: 230px 30px 209fr;
     grid-template-areas:
       "header header header"
       ". . ."
       "countries . generalInfo"
-      "countries . generalInfo"
-      "footer . generalInfo";
+      ". . ."
+      "footer footer footer";
   }
 }
-
 @media (min-width: 1213px) {
   .main-wrapper {
     display: flex;

@@ -11,6 +11,19 @@ const CountryInfos = async (iso) => {
     data: await response.json(),
   };
 };
+const AllCountriesInfo = async () => {
+  const response = await fetch(`https://restcountries.com/v3.1/all`);
+
+  if (!response.ok) {
+    return {
+      isOK: false,
+    };
+  }
+  return {
+    isOk: true,
+    data: await response.json(),
+  };
+};
 
 const GDP = async (iso) => {
   const response = await fetch(
@@ -310,6 +323,7 @@ const API = {
   ChildMortalityRates,
   HealthExpenditures,
   LifeExpectancy,
+  AllCountriesInfo,
 };
 
 export default API;

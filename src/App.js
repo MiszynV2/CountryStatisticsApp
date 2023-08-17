@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import NavigationBar from "./components/CountryBar/NavigationBar";
 import { Content } from "./components/Content";
 import Footer from "./components/Footer";
+
 import classes from "./components/common/Icon.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -48,6 +49,7 @@ function App() {
           <SearchFormMobile onInputSelected={setCountry} />
         )}
         <Content country={country} />
+
         <Footer className={"footer"} />
       </main>
     </div>

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { LOADING_STATE } from "../../constants";
 import classes from "./AllCountriesInfo.module.css";
@@ -63,7 +63,12 @@ const AllCountriesInfo = (props) => {
     );
     if (activeElements && activeElements.length > 0) {
       const selectedIndex = activeElements[0].index;
-      setSelectedCountry(data[selectedIndex]);
+      const selectedCountryData = data[selectedIndex];
+      setSelectedCountry(selectedCountryData);
+
+      if (selectedCountryData) {
+        console.log("Selected Country:", selectedCountryData.name.common);
+      }
     }
   };
 
@@ -91,35 +96,14 @@ const AllCountriesInfo = (props) => {
   };
 
   const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       tooltip: {
         enabled: true,
       },
       legend: {
         display: false,
-        labels: {
-          generateLabels: function (chart) {
-            const data = chart.data;
-            if (data.labels.length && data.datasets.length) {
-              return data.labels.map((label, index) => {
-                const dataset = data.datasets[0];
-                const backgroundColor = dataset.backgroundColor[index];
-                const borderColor = dataset.borderColor[index];
-
-                return {
-                  fillStyle: backgroundColor,
-                  strokeStyle: borderColor,
-                  lineWidth: dataset.borderWidth,
-                  hidden:
-                    isNaN(dataset.data[index]) ||
-                    chart.getDatasetMeta(0).data[index].hidden,
-                  index: index,
-                };
-              });
-            }
-            return [];
-          },
-        },
       },
     },
     onClick: handleCountryClick,
@@ -128,7 +112,9 @@ const AllCountriesInfo = (props) => {
   return (
     <div className={classes.main}>
       <h1 className={classes.title}>Global Statistic</h1>
-      <h2 className={classes.subtitle}>{new Date().toLocaleString()}</h2>
+      <h2 className={classes.subtitle}>
+        Choose country from the list to see plenty of statistics!
+      </h2>
       {selectedCountry ? (
         <div className={classes.selectedCountryInfo}>
           <h3>{selectedCountry.name.common}</h3>
@@ -140,7 +126,9 @@ const AllCountriesInfo = (props) => {
           <p>Countries by population</p>
         </div>
       )}
-      <Doughnut data={state} options={chartOptions} />
+      <div className={classes.chartCanvas}>
+        <Doughnut data={state} options={chartOptions} width={600} />
+      </div>
     </div>
   );
 };
