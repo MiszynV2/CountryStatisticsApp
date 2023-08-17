@@ -69,7 +69,7 @@ const CountryInformation = (props) => {
         </li>
         <li className={classes.info}>
           <span className={classes.firstInfo}>Status</span>
-          <span className={classes.languagesInfo}>{data[0].status}</span>
+          <span className={classes.languagesInfo}>assigned</span>
         </li>
         <li className={classes.info}>
           <span className={classes.firstInfo}>Population</span>

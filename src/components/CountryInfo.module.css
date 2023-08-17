@@ -15,7 +15,6 @@
 }
 
 .button:hover {
-  background-color: var(--btn-hover);
 }
 
 .button:active {
@@ -35,12 +34,10 @@
   background-color: var(--btn-hover);
 }
 
-/* Dodatkowy styl dla przycisków po najechaniu */
 .button:hover:not(.activeButton) {
   background-color: var(--btn-hover);
 }
 
-/* Dodatkowy styl dla przycisków po kliknięciu */
 .button:active:not(.activeButton) {
   background-color: var(--btn-active);
 }
