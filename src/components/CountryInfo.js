@@ -21,7 +21,7 @@ const CountryInfo = ({ country }) => {
           }`}
           onClick={() => handleOptionClick("EducationData")}
         >
-          EducationData
+          Education Data
         </button>
         <button
           className={`${classes.button} ${
@@ -41,7 +41,6 @@ const CountryInfo = ({ country }) => {
         </button>
       </div>
 
-      {/* Pozostała część komponentu bez zmian */}
       {optionSelected === "EducationData" && (
         <>
           <CountryInformation iso={country.iso} />

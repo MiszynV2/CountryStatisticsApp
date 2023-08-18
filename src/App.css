@@ -90,7 +90,7 @@ header {
 
 @media (min-width: 801px) and (max-width: 1212px) {
   .main {
-    grid-template-rows: 62px 20px 79% 35px 230px;
+    grid-template-rows: 66px 20px 83% 25px 180px;
     grid-template-columns: 230px 30px 209fr;
     grid-template-areas:
       "header header header"

@@ -6,31 +6,18 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 11px;
+  font-weight: 650;
   cursor: pointer;
   height: 40px;
   width: 29%;
-  font-size: 0.7em;
-  font-weight: 650;
+  border: 2px solid var(--btn-border-color);
 }
 
-.button:hover {
-}
-
-.button:active {
-  background-color: var(--btn-active);
-}
-
-.buttonWrapper {
-  display: flex;
-  grid-area: buttons;
-  justify-content: space-around;
-  background-color: var(--main-bg-color);
-  border-radius: var(--main-radius);
-  align-items: center;
-}
-
-.activeButton {
+.button:hover,
+.button:active,
+.button:hover:not(.activeButton),
+.button:active:not(.activeButton) {
   background-color: var(--btn-hover);
 }
 
@@ -40,4 +27,18 @@
 
 .button:active:not(.activeButton) {
   background-color: var(--btn-active);
+}
+
+.activeButton {
+  background-color: var(--btn-active);
+  color: var(--main-text-color);
+}
+
+.buttonWrapper {
+  display: flex;
+  grid-area: buttons;
+  justify-content: space-around;
+  background-color: var(--main-bg-color);
+  border-radius: var(--main-radius);
+  align-items: center;
 }

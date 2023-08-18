@@ -13,6 +13,10 @@ code {
     monospace;
 }
 :root {
+  --scroll-thumb-color: #888;
+  --scroll-thumb-hover-color: #555;
+  --scroll-track-color: #f7f7f7;
+  --btn-active: #c8dafa;
   --main-text-color: #444;
   --main-bg-color: #ffffff;
   --main-radius: 14px;
@@ -38,6 +42,10 @@ code {
 }
 
 [data-theme="dark"] {
+  --scroll-thumb-color: #c297b8;
+  --scroll-thumb-hover-color: #c97c95;
+  --scroll-track-color: #4d4c7d;
+  --btn-active: #c297b8;
   --main-text-hover: #c97c95;
   --main-text-color: #d8b9c3;
   --main-bg-color: #4d4c7d;

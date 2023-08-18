@@ -10,9 +10,9 @@ const NavigationBar = ({ onClick }) => {
   const pageHeight = size.height;
   let INIT_COUNTRY_PER_PAGE = Math.floor(pageHeight / 120);
   if (pageWidth > 1200) {
-    INIT_COUNTRY_PER_PAGE = 8;
+    INIT_COUNTRY_PER_PAGE = 10;
   } else {
-    INIT_COUNTRY_PER_PAGE = 16;
+    INIT_COUNTRY_PER_PAGE = 18;
   }
   const [currentPage, setCurrentPage] = useState(1);
   const [searchPhrase, setSearchPhrase] = useState("");
