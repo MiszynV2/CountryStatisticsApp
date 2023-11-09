@@ -1,28 +1,46 @@
-Country Statistics App
-I developed this project to enhance my skills in JavaScript, HTML, and CSS. The Country Statistics App (formerly known as CovidRaportApp) is an application designed for searching and displaying country statistics. The data is sourced from Restcountries and World Bank API. This project was built with React, crafted with passion.
+<p align="center">
+  <img
+    width="200"
+    height="200"
+    style="border-radius: 50%"
+    src="https://raw.githubusercontent.com/MiszynV2/CountryStatisticsApp/main/public/facicon.png"
+    alt="Country Statistics App"
+  />
+</p>
 
-How to Run the Application
-To run this application, follow these steps:
+<p align="center">
+  <!-- Add your badges here -->
+</p>
 
-Website: Country Statistics App
-Node Version: v16.20.0
-Clone this repository to your local machine or download the ZIP archive.
+<h1 align="center">Country Statistics App</h1>
+The Country Statistics App is an interactive web application built using React, designed to provide information on various countries. It utilizes data sourced from the Restcountries and World Bank APIs, offering a user-friendly interface for exploring and displaying country statistics.
 
-Open a terminal and navigate to the project directory.
+## Features
 
-Run the following commands:
+- **Search by country:** By clicking the Searchbar in the top-left corner of the page, you can access information on various countries and utilize tools for navigating the site.
 
-npm install
-npm start
-The application should now be running locally. Open your web browser and visit http://localhost:3000 to access the Country Statistics App.
+- **Statistics bars:** The bars allows you to see and compere multiple countries. You can explore different aspects of a country, such as demographics or economic indicators.
 
-Technologies Used
-This project leverages the following technologies:
+## How to Run Locally
 
-React: A JavaScript library for building user interfaces.
-HTML/CSS: For creating the structure and styling of the application.
-Restcountries API: Provides country data.
-World Bank API: Offers additional country statistics.
-About the Author
-This project was developed by Wojciech Marciniszyn. If you have any questions or feedback, feel free to reach out via email at wmarciniszyn11@gmail.com.
+To run this application on your computer, follow these steps:
 
+1. Clone the repository to your device or download the ZIP archive.
+2. Navigate to the project directory using the terminal.
+3. Run the `npm install` or `yarn install` command to install all dependencies.
+4. Run the `npm start` or `yarn start` command to start the local development server.
+5. Open your web browser and go to http://localhost:3000 to view the Country Statistics App.
+
+## Technologies Used
+
+- React - A JavaScript library for building user interfaces.
+- HTML/CSS - For creating the structure and styling of the website.
+- Vercel - A platform for hosting web applications.
+- Restcountries API - Provides country data.
+- World Bank API - Offers additional country statistics.
+  
+## Author
+
+This project was created by Wojciech Marciniszyn. You can reach me at wmarciniszyn11@gmail.com.
+
+---
