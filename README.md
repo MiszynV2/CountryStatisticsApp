@@ -41,6 +41,6 @@ To run this application on your computer, follow these steps:
   
 ## Author
 
-This project was created by Wojciech Marciniszyn. You can reach me at wmarciniszyn11@gmail.com.
+This project was created by myself to develop my programing and making charts skills. You can reach me at wmarciniszyn11@gmail.com.
 
 ---
